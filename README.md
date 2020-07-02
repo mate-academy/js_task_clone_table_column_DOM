@@ -7,6 +7,7 @@ Clone and paste element to document... Easy? Okay, but what do you say when I wi
 Your task: Clone the second column from the table, and append it to the table. To increase the complexity, append it in front of the last table column.
 
 It's the start table:
+
 ![Preview](./src/images/start.png)
 
 It's an expected result of your job:
