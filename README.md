@@ -1,3 +1,5 @@
+Follow [this instruction](https://github.com/mate-academy/layout_task-guideline/blob/master/README.md) to solve task
+
 ### Task: Copy/Paste table column
 
 Clone and paste element to document... Easy? Okay, but what do you say when I will say you have to clone and paste table column? This task is for real heroes!
