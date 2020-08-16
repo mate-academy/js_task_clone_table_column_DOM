@@ -1,7 +1,7 @@
 'use strict';
 
 for (const element of [...document.querySelectorAll('tr *:nth-child(2)')]) {
-  const clone = document.createElement(`${element.tagName}`);
+  const clone = element.cloneNode();
 
   clone.innerHTML = element.innerHTML;
 
