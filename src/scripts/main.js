@@ -1,12 +1,13 @@
 'use strict';
 
+
 function addComumnTable(cloneElement, putElement) {
   const rows = [...document.querySelectorAll('tr')];
 
-  for (let i = 0; i < rows.length; i++) {
-    rows[i].insertBefore(
-      rows[i].children[cloneElement].cloneNode(true),
-      rows[i].children[putElement]
+  for (const row of rows) {
+    row.insertBefore(
+      row.children[cloneElement].cloneNode(true),
+      row.children[putElement]
     );
   }
 }
