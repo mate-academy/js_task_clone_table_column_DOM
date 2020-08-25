@@ -1,5 +1,5 @@
 'use strict';
 
-for (const ceil of document.querySelectorAll('tr')) {
-  ceil.children[4].before(ceil.children[1].cloneNode(true));
+for (const row of document.querySelector('table').rows) {
+  row.cells[4].before(row.cells[1].cloneNode(true));
 }
