@@ -1,16 +1,7 @@
 'use strict';
 
-const thead = document.querySelector('thead');
-const tbody = document.querySelector('tbody');
-const tfoot = document.querySelector('tfoot');
-const headTitle = thead.querySelector('tr');
-const bodyList = tbody.querySelectorAll('tr');
-const footTitle = tfoot.querySelector('tr');
+const list = document.querySelectorAll('tr');
 
-headTitle.children[4].before(headTitle.children[1].cloneNode(true));
-
-[...bodyList].forEach(element => {
-  return element.children[4].before(element.children[1].cloneNode(true));
+list.forEach(row => {
+  row.lastElementChild.before(row.children[1].cloneNode(true));
 });
-
-footTitle.children[4].before(footTitle.children[1].cloneNode(true));
