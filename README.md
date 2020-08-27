@@ -1,7 +1,7 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_task_clone_table_column_DOM/)
+    - [DEMO LINK](https://AnastasiiaBortnichuk.github.io/js_task_clone_table_column_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
-    - There are no tests for this task so use `npm run lint` command instead of `npm test` 
+    - There are no tests for this task so use `npm run lint` command instead of `npm test`
 
 ### Task: Copy/Paste table column
 
@@ -17,7 +17,7 @@ It's an expected result of your job:
 ![Result](./src/images/result.png)
 
 In this task, you have not any steps. But have some hints to do this task:
-- JavaScript document has methods for work with tables. [Theory Tables](https://javascript.info/dom-navigation#dom-navigation-tables) 
+- JavaScript document has methods for work with tables. [Theory Tables](https://javascript.info/dom-navigation#dom-navigation-tables)
 - For beginning review the table structure
 - Remember that in this task HTML table has `tbody`, `thead`, `tfoot` sections.
 - Try the first append column to the end of the table.
