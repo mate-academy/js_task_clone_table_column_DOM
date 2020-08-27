@@ -1,15 +1,7 @@
 'use strict';
 
-const table = document.querySelector('table');
+const list = document.querySelectorAll('tr');
 
-function copyColumn(collection, numberOfColumn = 1) {
-  const rows = [...collection.rows];
-
-  for (const key of rows) {
-    key.lastElementChild.insertAdjacentHTML('beforebegin', `
-  <td> ${key.cells[numberOfColumn].textContent} </td>
-  `);
-  }
-}
-
-copyColumn(table);
+list.forEach(row => {
+  row.lastElementChild.before(row.children[1].cloneNode(true));
+});
