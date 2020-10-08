@@ -1,9 +1,9 @@
 'use strict';
 
 const table = document.querySelector('table');
-const insertIndex = 4;
-const columnIndex = 1;
+const insertToIndex = 4;
+const copyFromIndex = 1;
 
 for (const row of table.rows) {
-  row.children[insertIndex].before(row.cells[columnIndex].cloneNode(true));
+  row.children[insertToIndex].before(row.cells[copyFromIndex].cloneNode(true));
 }
