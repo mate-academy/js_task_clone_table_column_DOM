@@ -1,7 +1,9 @@
 'use strict';
 
 const table = document.querySelector('table');
+const clonePosition = 1;
+const clonedPosition = 4;
 
 for (const row of table.rows) {
-  row.cells[4].before(row.cells[1].cloneNode(true));
+  row.cells[clonedPosition].before(row.cells[clonePosition].cloneNode(true));
 }
