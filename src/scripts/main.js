@@ -2,12 +2,6 @@
 
 const rows = [...document.querySelectorAll('tr')];
 
-rows.forEach(row => {
-  const { children } = row;
-  const tag = children[0].tagName.toLowerCase();
-  const cell = document.createElement(tag);
-
-  cell.textContent = children[1].textContent;
-
-  row.insertBefore(cell, children[children.length - 1]);
+rows.forEach(({ children }) => {
+  children[children.length - 1].before(children[1].cloneNode(true));
 });
