@@ -1,10 +1,10 @@
 'use strict';
 
-const rows = [...document.querySelectorAll('tr')];
+const rows = document.querySelectorAll('tr');
 
-rows.forEach(({ children }) => {
-  const elementToCopy = children[1];
-  const indexToInsert = children.length - 1;
+rows.forEach(({ cells }) => {
+  const elementToCopy = cells[1];
+  const indexToInsert = cells.length - 1;
 
-  children[indexToInsert].before(elementToCopy.cloneNode(true));
+  cells[indexToInsert].before(elementToCopy.cloneNode(true));
 });
