@@ -1,5 +1,10 @@
 'use strict';
 
+const copiedColumnIndex = 1;
+const columnToInsertAfterIndex = 3;
+
 document.querySelectorAll('tr').forEach(row => {
-  row.cells[3].after(row.cells[1].cloneNode(true));
+  row.cells[columnToInsertAfterIndex]
+    .after(row.cells[copiedColumnIndex]
+      .cloneNode(true));
 });
