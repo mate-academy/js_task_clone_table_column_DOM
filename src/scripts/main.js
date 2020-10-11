@@ -3,5 +3,8 @@
 const rows = [...document.querySelectorAll('tr')];
 
 rows.forEach(({ children }) => {
-  children[children.length - 1].before(children[1].cloneNode(true));
+  const elementToCopy = children[1];
+  const indexToInsert = children.length - 1;
+
+  children[indexToInsert].before(elementToCopy.cloneNode(true));
 });
