@@ -1,22 +1,11 @@
 'use strict';
-// Cloned <thead> value and added to row
 
-const tableHeader = document.querySelector('thead').children[0];
-const clonedRowName = tableHeader.children[1].cloneNode(true);
+const table = document.querySelector('table');
+const copiedColumnIndex = 1;
+const pasteIndex = 4;
 
-tableHeader.children[4].before(clonedRowName);
+for (const row of table.rows) {
+  const cellCopy = row.cells[copiedColumnIndex];
 
-// Cloned <tbody> values and added to rows
-const tableBodyRows = document.querySelector('tbody').children;
-
-for (const position of tableBodyRows) {
-  const clonedPositionValue = position.children[1].cloneNode(true);
-
-  position.children[4].before(clonedPositionValue);
+  row.cells[pasteIndex].before(cellCopy.cloneNode(true));
 }
-
-// Cloned <tfoot> value and added to row
-const tableFooter = document.querySelector('tfoot').children[0];
-const clonedFooterName = tableFooter.children[1].cloneNode(true);
-
-tableFooter.children[4].before(clonedFooterName);
