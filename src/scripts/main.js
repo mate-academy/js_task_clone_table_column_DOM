@@ -5,8 +5,9 @@ const lines = document.querySelectorAll('tr');
 
 positions.shift();
 
-positions = positions.map(x => x.textContent).filter(
-  (value, index, arr) => (index % 5 === 0));
+positions = positions
+  .map(x => x.textContent)
+  .filter((value, index, arr) => (index % 5 === 0));
 positions.unshift('Position');
 positions.push('Position');
 
