@@ -6,8 +6,8 @@ const columnIndexTo = 4;
 let count = 0;
 
 for (const row of table.rows) {
-  const i = table.rows[count].cells[columnIndexFrom];
+  const cell = table.rows[count].cells[columnIndexFrom];
 
-  row.insertBefore(i.cloneNode(true), row.children[columnIndexTo]);
+  row.insertBefore(cell.cloneNode(true), row.children[columnIndexTo]);
   count++;
 }
