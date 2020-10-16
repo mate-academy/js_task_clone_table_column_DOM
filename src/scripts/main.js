@@ -7,13 +7,11 @@ for (let i = 0, l = tableRows.length; i < l; i++) {
 
   if (i === 0 || i === tableRows.length - 1) {
     tr.children[4].insertAdjacentHTML('beforebegin', `
-    <th>${tr.children[1].innerHTML}</th>
-  `);
-
-    continue;
+      <th>${tr.children[1].innerHTML}</th>
+    `);
+  } else {
+    tr.children[4].insertAdjacentHTML('beforebegin', `
+      <td>${tr.children[1].innerHTML}</td>
+    `);
   }
-
-  tr.children[4].insertAdjacentHTML('beforebegin', `
-    <td>${tr.children[1].innerHTML}</td>
-  `);
 }
