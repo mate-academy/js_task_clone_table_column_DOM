@@ -10,11 +10,7 @@ for (let i = 0; i < table.rows.length; i++) {
 
   const copiedElement = document.createElement(tagToCopy);
 
-  copiedElement.textContent = `${table
-    .rows[i]
-    .cells[indexToCopy]
-    .innerText}`;
+  copiedElement.textContent = `${table.rows[i].cells[indexToCopy].innerText}`;
 
-  table.rows[i]
-    .insertBefore(copiedElement, table.rows[i].cells[indexToInsert]);
+  table.rows[i].insertBefore(copiedElement, table.rows[i].cells[indexToInsert]);
 }
