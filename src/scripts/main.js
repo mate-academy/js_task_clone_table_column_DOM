@@ -6,11 +6,8 @@ const indexToCopy = 1;
 const indexToInsert = table.rows[indexToCopy].cells.length - 1;
 
 for (let i = 0; i < table.rows.length; i++) {
-  const tagToCopy = table.rows[i].cells[indexToCopy].tagName;
+  const itemToCopy = table.rows[i].cells[indexToCopy];
+  const positionToInsert = table.rows[i].cells[indexToInsert];
 
-  const copiedElement = document.createElement(tagToCopy);
-
-  copiedElement.textContent = `${table.rows[i].cells[indexToCopy].innerText}`;
-
-  table.rows[i].insertBefore(copiedElement, table.rows[i].cells[indexToInsert]);
+  table.rows[i].insertBefore(itemToCopy.cloneNode(true), positionToInsert);
 }
