@@ -1,11 +1,11 @@
 'use strict';
 
 const table = document.querySelector('table');
-const copy = 1;
-const paste = 4;
+const columnIndexToCopy = 1;
+const columnIndexToInsert = 4;
 
 for (const row of table.rows) {
-  const cellCopy = row.cells[copy];
+  const cellCopy = row.cells[columnIndexToCopy];
 
-  row.cells[paste].before(cellCopy.cloneNode(true));
+  row.cells[columnIndexToInsert].before(cellCopy.cloneNode(true));
 }
