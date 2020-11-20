@@ -1,12 +1,11 @@
-///<reference types=‘cypress’/>
 'use strict';
 
-describe('Tests for your table.', () => {
+describe('Clone table app', () => {
   before(() => {
     cy.visit('/');
   });
 
-  it('Table exists and have proper parameters.', () => {
+  it('should only change number of columns in original table', () => {
     cy.get('table').children().should('have.length', 3);
     cy.get('thead > tr').children().should('have.length', 6);
     cy.get('thead').children().should('have.length', 1);
@@ -14,7 +13,7 @@ describe('Tests for your table.', () => {
     cy.get('tfoot').children().should('have.length', 1);
   });
 
-  it('Table header is copied.', () => {
+  it('should copy second column and paste between fourth and sixth', () => {
     cy.get('th:nth-child(2)').then(($th2) => {
       const txt = $th2.text();
 
@@ -22,9 +21,7 @@ describe('Tests for your table.', () => {
         expect($th5.text()).to.eq(txt);
       });
     });
-  });
 
-  it('Table column is copied.', () => {
     cy.get('td:nth-child(2)').then(($td2) => {
       const txt = $td2.text();
 
