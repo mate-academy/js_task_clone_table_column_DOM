@@ -1,3 +1,7 @@
 'use strict';
 
-// write your code here
+const rows = document.querySelectorAll('tr');
+
+for (const row of rows) {
+  row.lastElementChild.before(row.children[1].cloneNode(true));
+};
