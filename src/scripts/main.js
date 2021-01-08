@@ -1,28 +1,18 @@
 'use strict';
 
-const tags = ['thead', 'tbody', 'tfoot'];
+const innerItem = document.querySelectorAll(`tr`);
 
-function copyColumn(array) {
-  for (const selector of array) {
-    let copy;
-    const innerItem = document.querySelectorAll(`${selector} > tr`);
+innerItem.forEach((element) => {
+  const copy = element.children[1];
+  const grandpa = copy.parentElement.parentElement.tagName;
 
-    if (innerItem.length === 1) {
-      copy = innerItem[0].children[1];
-
-      innerItem[0].children[3].insertAdjacentHTML('afterend', `
-        <th>${copy.innerText}</th>
-      `);
-    } else {
-      for (const person of innerItem) {
-        const copyBody = person.children[1];
-
-        person.children[3].insertAdjacentHTML('afterend', `
-          <td>${copyBody.innerText}</td>
-        `);
-      }
-    }
+  if (grandpa === 'THEAD' || grandpa === 'TFOOT') {
+    element.children[3].insertAdjacentHTML('afterend', `
+    <th>${copy.innerText}</th>
+  `);
+  } else {
+    element.children[3].insertAdjacentHTML('afterend', `
+    <td>${copy.innerText}</td>
+  `);
   }
-}
-
-copyColumn(tags);
+});
