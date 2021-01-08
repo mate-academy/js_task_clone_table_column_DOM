@@ -1,0 +1,22 @@
+[1mdiff --git a/src/scripts/main.js b/src/scripts/main.js[m
+[1mindex a50daeb..4c0bb24 100644[m
+[1m--- a/src/scripts/main.js[m
+[1m+++ b/src/scripts/main.js[m
+[36m@@ -3,14 +3,7 @@[m
+ const table = document.querySelector('table');[m
+ [m
+ [...table.rows].forEach(item => {[m
+[31m-  item.insertCell(4).innerHTML = item.cells[1].innerText;[m
+[31m-});[m
+[31m-[m
+[31m-const header = document.createElement('th');[m
+[31m-const footer = document.createElement('th');[m
+[32m+[m[32m  const clone = item.children[1].cloneNode(true);[m
+ [m
+[31m-header.innerText = table.tHead.rows[0].cells[1].innerText;[m
+[31m-footer.innerText = table.tFoot.rows[0].cells[1].innerText;[m
+[31m-[m
+[31m-table.tHead.rows[0].cells[4].replaceWith(header);[m
+[31m-table.tFoot.rows[0].cells[4].replaceWith(footer);[m
+[32m+[m[32m  item.children[4].before(clone);[m
+[32m+[m[32m});[m
