@@ -1,17 +1,17 @@
 'use strict';
 
-const table = document.querySelector('tbody');
-const tableHeader = document.querySelector('thead').querySelector('tr');
-const tableFooter = document.querySelector('tfoot').querySelector('tr');
+const table = document.querySelectorAll('tr');
 
-function shiftColumn(tableElement, tegName) {
+function shiftColumn(tableElement, teg) {
   tableElement.cells[4].insertAdjacentHTML('beforebegin',
-    `${tegName}${tableElement.cells[1].textContent}`);
+    `${teg}${tableElement.cells[1].textContent}`);
 };
 
-for (const row of table.rows) {
-  shiftColumn(row, '<td>');
-};
+for (const row of table) {
+  let teg = '<td>';
 
-shiftColumn(tableHeader, '<th>');
-shiftColumn(tableFooter, '<th>');
+  if (row.cells[0].tagName === 'TH') {
+    teg = '<th>';
+  };
+  shiftColumn(row, teg);
+};
