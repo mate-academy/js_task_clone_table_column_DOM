@@ -1,13 +1,9 @@
 'use strict';
 
-// write your code here
-const table = document.querySelector('table');
+const rows = document.querySelectorAll('tr');
 
-[...table.children].forEach((block) => {
-  [...block.children].forEach((tr) => {
-    const newTd = document.createElement(`${tr.children[1].nodeName}`);
+[...rows].forEach(row => {
+  const cell = row.children[1];
 
-    newTd.innerText = tr.children[1].innerText;
-    tr.insertBefore(newTd, tr.children[4]);
-  });
+  row.insertBefore(cell.cloneNode(true), row.children[4]);
 });
