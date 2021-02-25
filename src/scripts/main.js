@@ -2,16 +2,11 @@
 
 const table = document.querySelector('table');
 const placedElementIndex = 1;
-const specifiedLocationIndex = 3;
-const separatedTableElements = [...table.children];
+const specifiedLocationIndex = 4;
+const tableRows = [...table.rows];
 
-separatedTableElements.forEach(node => {
-  const parsedNodes = [...node.children];
+tableRows.forEach(element => {
+  const clonedElement = element.cells[placedElementIndex].cloneNode(true);
 
-  parsedNodes.forEach(element => {
-    const clonedElement = element
-      .children[placedElementIndex].cloneNode(true);
-
-    element.children[specifiedLocationIndex].after(clonedElement);
-  });
+  element.insertBefore(clonedElement, element.cells[specifiedLocationIndex]);
 });
