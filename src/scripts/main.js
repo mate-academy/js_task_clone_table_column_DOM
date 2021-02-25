@@ -2,22 +2,16 @@
 
 const table = document.querySelector('table');
 const placedElementIndex = 1;
+const specifiedLocationIndex = 3;
 const separatedTableElements = [...table.children];
 
 separatedTableElements.forEach(node => {
   const parsedNodes = [...node.children];
 
-  if (parsedNodes.length !== 1) {
-    parsedNodes.forEach(element => {
-      const clonedElementBody = element
-        .children[placedElementIndex].cloneNode(true);
-
-      element.lastElementChild.before(clonedElementBody);
-    });
-  } else {
-    const clonedRest = parsedNodes[0]
+  parsedNodes.forEach(element => {
+    const clonedElement = element
       .children[placedElementIndex].cloneNode(true);
 
-    parsedNodes[0].lastElementChild.before(clonedRest);
-  }
+    element.children[specifiedLocationIndex].after(clonedElement);
+  });
 });
