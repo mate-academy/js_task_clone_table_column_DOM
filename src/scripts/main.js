@@ -1,19 +1,23 @@
 'use strict';
 
-const tableHead = document.querySelector('thead');
-const tableBody = document.querySelector('tbody');
-const tableFoot = document.querySelector('tfoot');
+const table = document.querySelector('table');
+const placedElementIndex = 1;
+const separatedTableElements = [...table.children];
 
-const clonedPositionHead = tableHead.firstElementChild.children[1]
-  .cloneNode(true);
-const clonedPositionFoot = tableFoot.firstElementChild.children[1]
-  .cloneNode(true);
+separatedTableElements.forEach(node => {
+  const parsedNodes = [...node.children];
 
-[...tableBody.children].forEach(elem => {
-  const clonedPositionBody = elem.children[1].cloneNode(true);
+  if (parsedNodes.length !== 1) {
+    parsedNodes.forEach(element => {
+      const clonedElementBody = element
+        .children[placedElementIndex].cloneNode(true);
 
-  elem.lastElementChild.before(clonedPositionBody);
+      element.lastElementChild.before(clonedElementBody);
+    });
+  } else {
+    const clonedRest = parsedNodes[0]
+      .children[placedElementIndex].cloneNode(true);
+
+    parsedNodes[0].lastElementChild.before(clonedRest);
+  }
 });
-
-tableHead.firstElementChild.lastElementChild.before(clonedPositionHead);
-tableFoot.firstElementChild.lastElementChild.before(clonedPositionFoot);
