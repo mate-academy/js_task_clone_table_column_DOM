@@ -2,12 +2,12 @@
 
 const [...tableRows] = document.querySelectorAll('tr');
 
-const oldColumnIndex = 1;
-const newColumnIndex = 3;
+const clonedFrom = 1;
+const clonedTo = 3;
 
 for (const row of tableRows) {
-  const cloneCell = row.children[oldColumnIndex].cloneNode(true);
-  const newCell = row.children[newColumnIndex];
+  const cloneCell = row.children[clonedFrom].cloneNode(true);
+  const newCell = row.children[clonedTo];
 
   newCell.after(cloneCell);
 }
