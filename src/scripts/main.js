@@ -10,9 +10,9 @@ const copingColumn = document.querySelectorAll('tbody > tr > td:nth-child(2)');
 
 const bodyList = document.querySelectorAll('tbody > tr');
 
-for (let i = 0; i < bodyList.length; i++) {
-  bodyList[i].children[4].before(copingColumn[i].cloneNode(true));
-}
+bodyList.forEach((line, index) => {
+  line.children[4].before(copingColumn[index].cloneNode(true));
+});
 
 const footerList = document.querySelector('tfoot > tr');
 
