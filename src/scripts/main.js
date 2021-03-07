@@ -3,6 +3,9 @@
 const table = document.querySelector('table');
 const tableRows = table.rows;
 
+const cloneAfterIndex = 3;
+const cloneIndex = 1;
+
 for (const row of tableRows) {
-  row.children[3].after(row.children[1].cloneNode(true));
+  row.children[cloneAfterIndex].after(row.children[cloneIndex].cloneNode(true));
 }
