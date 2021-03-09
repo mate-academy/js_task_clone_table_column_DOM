@@ -3,14 +3,14 @@
 const table = document.querySelector('table');
 const tableRows = table.rows;
 
-const secondCell = 1;
-const lastCell = table.rows[0].cells.length - 1;
+const secondCellIndex = 1;
+const lastCellIndex = table.rows[0].cells.length - 1;
 
-function copyCell(copyCellFrom, pasteCellTo) {
+function copyCell(copyCellFromIndex, pasteCellBeforeIndex) {
   for (const tableRow of tableRows) {
-    tableRow.children[pasteCellTo]
-      .before(tableRow.children[copyCellFrom].cloneNode(true));
+    tableRow.children[pasteCellBeforeIndex]
+      .before(tableRow.children[copyCellFromIndex].cloneNode(true));
   }
 }
 
-copyCell(secondCell, lastCell);
+copyCell(secondCellIndex, lastCellIndex);
