@@ -1,13 +1,12 @@
 'use strict';
 
-const [...tr] = document.querySelectorAll('tr');
+const table = document.querySelector('table');
+const rows = table.rows;
+const clonedFrom = 1;
+const clonedTo = 3;
 
-function copyColumns(copy, which, insert) {
-  for (const row of copy) {
-    const copyCellule = row.children[which].cloneNode(true);
+for (const row of rows) {
+  const copyCellule = row.cells[clonedFrom].cloneNode(true);
 
-    row.children[insert].before(copyCellule);
-  }
+  row.cells[clonedTo].after(copyCellule);
 }
-
-copyColumns(tr, 1, 4);
