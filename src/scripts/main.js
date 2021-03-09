@@ -1,6 +1,8 @@
 'use strict';
 
-const rows = document.querySelectorAll('tr');
+const table = document.querySelector('table');
+const rows = table.rows;
+
 const copyFrom = 1;
 const copyTo = 4;
 
