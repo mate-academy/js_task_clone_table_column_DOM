@@ -2,11 +2,11 @@
 
 const table = document.querySelector('table');
 const rows = table.rows;
-const clonedFrom = 1;
-const clonedTo = 3;
+const indexFrom = 1;
+const indexTo = 3;
 
 for (const row of rows) {
-  const copyCellule = row.cells[clonedFrom].cloneNode(true);
+  const copyRow = row.cells[indexFrom].cloneNode(true);
 
-  row.cells[clonedTo].after(copyCellule);
+  row.cells[indexTo].after(copyRow);
 }
