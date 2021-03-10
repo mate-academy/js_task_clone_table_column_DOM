@@ -6,6 +6,8 @@ cloneColumn(dashboard, 1, 4);
 
 function cloneColumn(targetTable, fromIndex, toIndex) {
   for (const row of targetTable.rows) {
-    row.children[toIndex].before(row.children[fromIndex].cloneNode(true));
+    const clone = row.children[fromIndex].cloneNode(true);
+
+    row.children[toIndex].before(clone);
   }
 }
