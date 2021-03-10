@@ -1,13 +1,12 @@
 'use strict';
 
 const table = document.querySelector('table');
-const property = document.querySelector('thead tr');
 
-const index = [...property.children].findIndex(td =>
-  td.innerHTML === 'Position');
+const cloneFrom = 1;
+const cloneInto = 4;
 
 for (const human of table.rows) {
-  const position = human.cells[index].cloneNode(true);
+  const position = human.cells[cloneFrom].cloneNode(true);
 
-  human.lastElementChild.before(position);
+  human.cells[cloneInto].before(position);
 }
