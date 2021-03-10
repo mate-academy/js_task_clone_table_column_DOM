@@ -1,9 +1,13 @@
 'use strict';
 
-function copyColumnFromTo(from, to) {
-  for (let i = 0; i < document.querySelector('table').rows['length']; i++) {
-    document.querySelector('table').rows[i].cells[to].before(
-      document.querySelector('table').rows[i].cells[from].cloneNode(true)
+function copyColumnFromTo(numberOfCopiedColumn, newPositionOfCopiedColumn) {
+  const table = document.querySelector('table');
+
+  for (let i = 0; i < table.rows['length']; i++) {
+    const copiedCol = table.rows[i].cells[numberOfCopiedColumn].cloneNode(true);
+
+    table.rows[i].cells[newPositionOfCopiedColumn].before(
+      copiedCol
     );
   }
 }
