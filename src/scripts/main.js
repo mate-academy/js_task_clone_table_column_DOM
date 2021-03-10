@@ -8,5 +8,7 @@ const copyFrom = 4;
 const copyTo = 1;
 
 for (const row of tableRow) {
-  row.cells[copyFrom].before(row.cells[copyTo].cloneNode(true));
+  const clonedCell = row.cells[copyTo].cloneNode(true);
+
+  row.cells[copyFrom].before(clonedCell);
 }
