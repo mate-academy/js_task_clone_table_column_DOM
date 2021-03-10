@@ -3,12 +3,12 @@
 const table = document.querySelector('table');
 const tableRows = [...table.rows];
 
-const positionIndex = 1;
-const locationIndex = 4;
+const indexCloneFrom = 1;
+const indexCLlneTo = 4;
 
 tableRows.forEach(element => {
-  const tableElementClone = element.cells[positionIndex].cloneNode(true);
+  const tableElementClone = element.cells[indexCloneFrom].cloneNode(true);
 
   element.insertBefore(tableElementClone,
-    element.cells[locationIndex]);
+    element.cells[indexCLlneTo]);
 });
