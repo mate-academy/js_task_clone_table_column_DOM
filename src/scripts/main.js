@@ -6,6 +6,8 @@ const tableRows = [...table.rows];
 const positionIndex = 1;
 
 tableRows.forEach(element => {
-  element.insertBefore(element.cells[positionIndex].cloneNode(true),
+  const tableElementClone = element.cells[positionIndex].cloneNode(true);
+
+  element.insertBefore(tableElementClone,
     element.cells[4]);
 });
