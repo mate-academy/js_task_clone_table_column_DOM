@@ -5,5 +5,8 @@ const cloneIndex = 1;
 const insertIndex = 4;
 
 for (const row of tableRows) {
-  row.children[insertIndex].before(row.children[cloneIndex].cloneNode(true));
+  const clonnedCell = row.children[cloneIndex].cloneNode(true);
+  const newCell = row.children[insertIndex];
+
+  newCell.before(clonnedCell);
 }
