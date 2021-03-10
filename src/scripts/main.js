@@ -2,11 +2,11 @@
 
 const table = document.querySelector('table');
 const rows = table.rows;
-const columnToCut = rows[0].children.length - 1;
-const columnPosition = 1;
+const placeToInsert = rows[0].children.length - 1;
+const clonedColumnPosition = 1;
 
 for (const row of rows) {
-  const positionToInsert = row.children[columnPosition].cloneNode(true);
+  const clonedColumn = row.children[clonedColumnPosition].cloneNode(true);
 
-  row.children[columnToCut].before(positionToInsert);
+  row.children[placeToInsert].before(clonedColumn);
 }
