@@ -1,7 +1,5 @@
 'use strict';
 
-// write your code here
-
 const table = document.querySelector('table');
 
 const rows = table.rows;
