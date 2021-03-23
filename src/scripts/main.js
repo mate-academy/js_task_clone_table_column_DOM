@@ -1,7 +1,8 @@
 'use strict';
 
-const tr = document.querySelectorAll('tr');
+const rows = document.querySelectorAll('tr');
 
-for (let i = 0; i < tr.length; i++) {
-  tr[i].insertBefore(tr[i].cells[1].cloneNode(true), tr[i].lastElementChild);
+for (let i = 0; i < rows.length; i++) {
+  rows[i].insertBefore(rows[i].cells[1].cloneNode(true),
+    rows[i].lastElementChild);
 };
