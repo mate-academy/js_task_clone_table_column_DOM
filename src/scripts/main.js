@@ -1,17 +1,7 @@
 'use strict';
 
-const allRow = [...document.querySelectorAll('tr')];
+const tr = [...document.querySelectorAll('tr')];
 
-function clone(nameOfClone, insertAfter) {
-  const clonePosition = [...allRow[0].children]
-    .findIndex(item => item.outerText === nameOfClone);
-  const pastePosition = [...allRow[0].children]
-    .findIndex(item => item.outerText === insertAfter) + 1;
-
-  for (let i = 0; i < allRow.length; i++) {
-    allRow[i].insertBefore(allRow[i].children[clonePosition].cloneNode(true),
-      allRow[i].children[pastePosition]);
-  }
+for (let i = 0; i < tr.length; i++) {
+  tr[i].insertBefore(tr[i].children[1].cloneNode(true), tr[i].children[4]);
 }
-
-clone('Position', 'Age');
