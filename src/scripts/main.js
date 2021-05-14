@@ -1,22 +1,9 @@
 'use strict';
 
-const sourceColumnName = 'Position';
-const targetColumnName = 'Salary';
-const tableHeader = document.querySelector('thead');
 const tableRows = document.querySelectorAll('tr');
-const sourceIndex = findColumnIndex(
-  tableHeader.children,
-  sourceColumnName
-);
-const targetIndex = findColumnIndex(tableHeader.children, targetColumnName);
 
 for (let i = 0; i < tableRows.length; i++) {
-  const clonedElement = tableRows[i].children[sourceIndex].cloneNode(true);
+  const sourceClone = tableRows[i].children[1].cloneNode(true);
 
-  tableRows[i].children[targetIndex].before(clonedElement);
-}
-
-function findColumnIndex(header, columnTitle) {
-  return [...header[0].children].map(element => element.innerText)
-    .indexOf(columnTitle);
+  tableRows[i].children[4].before(sourceClone);
 }
