@@ -3,8 +3,6 @@
 const tableRows = [...document.querySelector('table').rows];
 
 for (const row of tableRows) {
-  // console.log(row.lastElementChild);
-
   if (row.parentElement.nodeName === 'THEAD'
   || row.parentElement.nodeName === 'TFOOT') {
     const parentSection = row.parentElement.children[0];
