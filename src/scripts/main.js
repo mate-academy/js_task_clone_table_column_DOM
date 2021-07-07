@@ -6,12 +6,15 @@ const makeCloneAndInsert = (row, fromCell, toCell) => {
   );
 };
 
-const topRow = document.querySelector('thead').children[0];
-const bottomRow = document.querySelector('tfoot').children[0];
+const table = document.querySelector('table');
+const topRow = table.tHead.rows[0];
+const bottomRow = table.tFoot.rows[0];
+const copyFromIndex = 1;
+const copyToIndex = 4;
 
-makeCloneAndInsert(topRow, 1, 4);
-makeCloneAndInsert(bottomRow, 1, 4);
+makeCloneAndInsert(topRow, copyFromIndex, copyToIndex);
+makeCloneAndInsert(bottomRow, copyFromIndex, copyToIndex);
 
-for (const currentRow of document.querySelector('tbody').children) {
-  makeCloneAndInsert(currentRow, 1, 4);
+for (const currentRow of table.tBodies[0].rows) {
+  makeCloneAndInsert(currentRow, copyFromIndex, copyToIndex);
 }
