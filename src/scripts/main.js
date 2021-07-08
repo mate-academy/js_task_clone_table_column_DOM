@@ -1,24 +1,12 @@
 'use strict';
 
-const tableRows = [...document.querySelector('table').rows];
+const rows = document.querySelectorAll('tr');
 
-for (const row of tableRows) {
-  if (row.parentElement.nodeName === 'THEAD'
-  || row.parentElement.nodeName === 'TFOOT') {
-    const parentSection = row.parentElement.children[0];
-    const newCol = document.createElement('th');
+for (const row of rows) {
+  const selectedColumn = 1;
+  const selectedPlace = 4;
 
-    newCol.textContent = row.children[1].textContent;
-
-    parentSection.insertBefore(newCol, parentSection.lastElementChild);
-  };
-
-  if (row.parentElement.nodeName === 'TBODY') {
-    const parentSection = row.parentElement.children[row.rowIndex - 1];
-    const newCol = document.createElement('td');
-
-    newCol.textContent = row.children[1].textContent;
-
-    parentSection.insertBefore(newCol, parentSection.lastElementChild);
-  }
-};
+  row.insertBefore(
+    row.children[selectedColumn].cloneNode(true), row.children[selectedPlace]
+  );
+}
