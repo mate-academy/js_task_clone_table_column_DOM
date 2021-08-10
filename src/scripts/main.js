@@ -1,8 +1,8 @@
 'use strict';
 
 const table = document.querySelector('table');
-const fromCeil = 1;
-const toCeil = 4;
+const cellIndex = 1;
+const cellCopyIndex = 4;
 
 [...table.children].forEach(
   partOfTable => cloneColumn(partOfTable, fromCeil, toCeil)
