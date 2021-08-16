@@ -1,3 +1,5 @@
 'use strict';
 
-// write your code here
+for (const tr of document.querySelectorAll('tr')) {
+  tr.lastElementChild.before(tr.cells[1].cloneNode(true));
+}
