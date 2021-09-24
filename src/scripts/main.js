@@ -2,18 +2,8 @@
 
 // write your code here
 const dashboard = document.querySelector('table');
+const rows = [...dashboard.rows];
 
-function copyPateColumn(nodeTable, numColumn = 1, insertColumn = 2) {
-  const rows = [...nodeTable.rows];
-
-  rows.map(row => {
-    const rowChildren = row.children;
-
-    const elTarget = rowChildren[insertColumn - 1];
-    const elCopy = rowChildren[numColumn - 1].cloneNode(true);
-
-    elTarget.insertAdjacentElement('beforebegin', elCopy);
-  });
-}
-
-copyPateColumn(dashboard, 2, 5);
+rows.forEach(row => {
+  row.lastElementChild.before(row.children[1].cloneNode(true));
+});
