@@ -6,9 +6,8 @@ const table = document.querySelector('table');
 
 for (let i = 0; i < table.rows.length; i++) {
   const row = table.rows[i];
-  const position = row.cells[1];
-  const salary = row.lastElementChild;
+  const second = row.cells[1];
+  const last = row.lastElementChild;
 
-  row.append(position.cloneNode(true));
-  row.append(salary);
+  last.before(second.cloneNode(true));
 }
