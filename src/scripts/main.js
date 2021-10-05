@@ -2,10 +2,12 @@
 
 const tr = document.querySelectorAll('tr');
 
-for (const th in tr) {
-  const item = tr[th].children[1];
-  const item2 = tr[th].children[3];
-  const clone = item.cloneNode(true);
+const colums = [...tr];
 
-  item2.after(clone);
-}
+colums.forEach(column => {
+  const secondColumn = column.children[1];
+  const fourthColumn = column.children[3];
+  const cloneSecondColumn = secondColumn.cloneNode(true);
+
+  fourthColumn.after(cloneSecondColumn);
+});
