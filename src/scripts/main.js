@@ -13,9 +13,9 @@ function getColumn(columnNumberForCopy) {
   return column;
 }
 
-function createColumn(column, columnNumberAfterPaste) {
+function createColumn(column, columnNumberAfterPast) {
   for (let i = 0; i < rows.length; i++) {
-    rows[i].children[columnNumberAfterPaste - 1]
+    rows[i].children[columnNumberAfterPast - 1]
       .before(column[i].cloneNode(true));
   }
 }
