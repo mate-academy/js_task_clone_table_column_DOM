@@ -1,3 +1,17 @@
 'use strict';
 
-// write your code here
+const table = document.body.firstElementChild;
+
+for (let i = 0; i < table.rows.length; i++) {
+  if (i === 0) {
+    const th = document.createElement('th');
+
+    th.innerText = table.rows[0].cells[1].innerText;
+    table.rows[0].appendChild(th);
+  } else {
+    const td = document.createElement('td');
+
+    td.innerText = table.rows[i].cells[1].innerText;
+    table.rows[i].append(td);
+  };
+}
