@@ -43,5 +43,8 @@
   ],
   "mateAcademy": {
     "projectType": "layoutDOM"
+  },
+  "dependencies": {
+    "adfab-gulp-boilerplate": "^2.4.0"
   }
 }
