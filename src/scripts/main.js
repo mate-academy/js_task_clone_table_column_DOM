@@ -1,8 +1,6 @@
 'use strict';
 
-const thead = document.querySelector('thead').children;
-const tbody = document.querySelector('tbody').children;
-const tfoot = document.querySelector('tfoot').children;
+const tr = document.querySelectorAll('tr');
 
 function clone(tElem) {
   [...tElem].forEach(element => {
@@ -12,6 +10,4 @@ function clone(tElem) {
   });
 };
 
-clone(thead);
-clone(tbody);
-clone(tfoot);
+clone(tr);
