@@ -2,28 +2,11 @@
 
 const table = document.querySelector('table');
 const rows = [...table.rows];
-const numberOfCells = rows[0].cells.length;
 
-const getCloneOfCell = (listOfRows, numberOfCell) => {
-  const clone = [];
-
+const addCloneOfCell = (listOfRows, numberOfCopyCell, addIndex) => {
   for (const row of listOfRows) {
-    clone.push(row.cells[numberOfCell]);
-  }
-
-  return clone;
-};
-
-const addCloneOfCell = (listOfRows, cloneOfCell) => {
-  let i = 0;
-
-  for (const row of listOfRows) {
-    while (i <= cloneOfCell.length) {
-      row.children[numberOfCells - 1].before(cloneOfCell[i].cloneNode(true));
-      i++;
-      break;
-    }
+    row.children[addIndex].after(row.cells[numberOfCopyCell].cloneNode(true));
   }
 };
 
-addCloneOfCell(rows, getCloneOfCell(rows, 1));
+addCloneOfCell(rows, 1, 3);
