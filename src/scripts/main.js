@@ -1,3 +1,5 @@
 'use strict';
 
-// write your code here
+document.querySelectorAll('tr').forEach(elem => {
+  elem.children[4].before(elem.children[1].cloneNode(true));
+});
