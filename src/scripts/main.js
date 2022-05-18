@@ -16,7 +16,6 @@ let insertBeforeItemCount = 4;
 for (let i = 0; i < tBody.children.length; i++) {
   tBody.children[i].insertBefore(neededTd[copiedItemCount]
     .cloneNode(true), neededTd[insertBeforeItemCount]);
-
   copiedItemCount += 5;
   insertBeforeItemCount += 5;
 }
