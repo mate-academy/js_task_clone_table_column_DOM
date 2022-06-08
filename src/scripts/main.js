@@ -1,7 +1,9 @@
 'use strict';
 
 [...document.querySelector('table').rows].forEach(row => {
-  const copiedCell = row.cells[1].cloneNode(true);
+  const position = row.cells[1];
+  const salary = row.cells[4];
+  const positionCopy = position.cloneNode(true);
 
-  row.insertBefore(copiedCell, row.cells[4]);
+  row.insertBefore(positionCopy, salary);
 });
