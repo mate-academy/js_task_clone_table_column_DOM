@@ -9,7 +9,6 @@
 
 Clone and paste element to document... Easy? Okay, but what do you say when I aks you to clone and paste table column? This task is for real heroes!
 Клонировать и вставить элемент в документ... Легко? Хорошо, но что вы ответите, когда я попрошу вас клонировать и вставить столбец таблицы? Это задание для настоящих героев!
-
 Your task: Clone the second column from the table, and append it to the table. To increase the complexity, append it in front of the last table column.
 Ваша задача: Клонировать второй столбец из таблицы и добавить его в таблицу. Чтобы увеличить сложность, добавьте его перед последним столбцом таблицы.
 
