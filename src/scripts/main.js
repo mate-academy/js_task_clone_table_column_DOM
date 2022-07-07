@@ -1,19 +1,15 @@
 'use strict';
 
-const thead = document.querySelector('thead').children;
-const tbody = document.querySelector('tbody').children;
-const tfoot = document.querySelector('tfoot').children;
+const rows = document.querySelectorAll('tr');
+const copiedColumn = 1;
+const columnInsertBefore = 4;
 
-function copyRow(column, typeRow) {
-  for (const element of column) {
-    const item = document.createElement(typeRow);
+function copyRow(args) {
+  for (const item of args) {
+    const copiedRow = item.children[copiedColumn].cloneNode(true);
 
-    item.textContent = element.children[1].textContent;
-
-    element.insertBefore(item, element.children[4]);
+    item.insertBefore(copiedRow, item.children[columnInsertBefore]);
   }
 }
 
-copyRow(thead, 'th');
-copyRow(tbody, 'td');
-copyRow(tfoot, 'th');
+copyRow(rows);
