@@ -3,14 +3,16 @@
 const thead = document.querySelector('thead').children;
 const tbody = document.querySelector('tbody').children;
 const tfoot = document.querySelector('tfoot').children;
+const copiedColumn = 1;
+const columnInsertBefore = 4;
 
 function copyRow(column, typeRow) {
   for (const element of column) {
     const item = document.createElement(typeRow);
 
-    item.textContent = element.children[1].textContent;
+    item.textContent = element.children[copiedColumn].textContent;
 
-    element.insertBefore(item, element.children[4]);
+    element.insertBefore(item, element.children[columnInsertBefore]);
   }
 }
 
