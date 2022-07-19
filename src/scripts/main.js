@@ -1,7 +1,7 @@
 'use strict';
 
 const table = document.querySelector('table');
-const rowCopy = 1;
+const rowCopy = 2;
 const rowPasteAfter = 4;
 
 for (const row of table.rows) {
