@@ -3,5 +3,7 @@
 const tableRows = document.querySelectorAll('tr');
 
 tableRows.forEach((row) => {
-  row.children[row.children.length - 1].before(row.children[1].cloneNode(true));
+  const placingId = row.children.length - 2;
+
+  row.children[placingId].after(row.children[1].cloneNode(true));
 });
