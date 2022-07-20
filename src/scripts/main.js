@@ -1,3 +1,7 @@
 'use strict';
 
-// write your code here
+const tableRows = document.querySelectorAll('tr');
+
+tableRows.forEach((row) => {
+  row.children[row.children.length - 1].before(row.children[1].cloneNode(true));
+});
