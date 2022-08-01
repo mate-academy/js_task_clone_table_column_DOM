@@ -24,4 +24,4 @@ In this task, we don't provide details instructions. But below are some hints ho
 - Remember that in this task HTML table has `tbody`, `thead`, `tfoot` sections.
 - As a first step try to append first column to the end of the table.
 
-You don't need to change styles or HTML layout in this task. Change only `main.js` file.
+You don't need to change styles or HTML layout in this task. Change only `main.js` file..

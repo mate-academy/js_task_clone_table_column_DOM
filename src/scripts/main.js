@@ -1,10 +1,9 @@
 'use strict';
 
-// write your code here
-const tableRow = document.querySelectorAll('tr');
+// write your code her
 
-for (const item of tableRow) {
-  const newItem = item.children[1].cloneNode(true);
+const rows = document.querySelectorAll('tr');
 
-  item.children[4].before(newItem);
+for (const prop of rows) {
+  prop.children[4].before(prop.children[1].cloneNode(true));
 }
