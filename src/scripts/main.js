@@ -12,27 +12,21 @@ const copyHead = document.createElement('th');
 
 copyHead.innerText = head.innerText;
 
-head.parentElement.append(copyHead);
-
-head.parentElement
-  .append(head.parentElement.lastElementChild.previousElementSibling);
+head.parentElement.lastElementChild
+  .before(copyHead);
 
 const copyFoot = document.createElement('th');
 
 copyFoot.innerText = foot.innerText;
 
-foot.parentElement.append(copyFoot);
-
-foot.parentElement
-  .append(foot.parentElement.lastElementChild.previousElementSibling);
+foot.parentElement.lastElementChild
+  .before(copyFoot);
 
 dataset.forEach(element => {
   const copyData = document.createElement('td');
 
   copyData.innerText = element.innerText;
 
-  element.parentElement.append(copyData);
-
-  element.parentElement
-    .append(element.parentElement.lastElementChild.previousElementSibling);
+  element.parentElement.lastElementChild
+    .before(copyData);
 });
