@@ -1,7 +1,5 @@
 'use strict';
 
-const secondColumnElements = document.querySelectorAll('tr > :nth-child(2)');
-const fourthColumnElements = document.querySelectorAll('tr > :nth-child(4)');
-
-fourthColumnElements.forEach((element, i) => (
-  fourthColumnElements[i].after(secondColumnElements[i].cloneNode(true))));
+document.querySelectorAll('tr')
+  .forEach(element => element.children[3]
+    .after(element.children[1].cloneNode(true)));
