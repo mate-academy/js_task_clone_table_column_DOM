@@ -6,7 +6,7 @@ const tFoot = document.querySelector('tfoot').children[0];
 
 let counter = 0;
 
-function copy(elem) {
+function copyPaste(elem) {
   const trElem = elem.children[1].cloneNode(true);
 
   elem.insertBefore(trElem, elem.children[4]);
@@ -21,5 +21,5 @@ function copy(elem) {
   counter++;
 };
 
-copy(tHead);
-copy(tFoot);
+copyPaste(tHead);
+copyPaste(tFoot);
