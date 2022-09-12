@@ -1,9 +1,19 @@
 'use strict';
 
-const rows = document.querySelectorAll('tr');
+const head = document.querySelector('thead');
+const body = document.querySelector('tbody');
+const foot = document.querySelector('tfoot');
 
-for (const row of rows) {
-  const rowClone = row.children[1].cloneNode(true);
+const copyColumns = (collection) => {
+  const rows = [...collection.rows];
 
-  row.children[4].before(rowClone);
-}
+  for (const row of rows) {
+    const rowClone = row.children[1].cloneNode(true);
+
+    row.children[4].before(rowClone);
+  }
+};
+
+copyColumns(head);
+copyColumns(body);
+copyColumns(foot);
