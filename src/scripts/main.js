@@ -1,3 +1,7 @@
 'use strict';
 
-// write your code here
+const table = document.querySelector('table');
+
+for (const node of table.rows) {
+  node.cells[3].after(node.cells[1].cloneNode(true));
+}
