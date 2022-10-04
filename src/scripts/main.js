@@ -1,7 +1,10 @@
 'use strict';
 
-const rows = document.querySelector('table').rows;
+const table = document.querySelector('table');
+const rows = table.rows;
 
 for (const row of rows) {
-  row.cells[4].before(row.cells[1].cloneNode(true));
+  const columnToInsert = row.cells[1].cloneNode(true);
+
+  row.cells[4].before(columnToInsert);
 }
