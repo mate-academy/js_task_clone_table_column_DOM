@@ -1,3 +1,5 @@
 'use strict';
 
-// write your code here
+[...document.querySelectorAll('tr')]
+  .map(i => i.lastElementChild
+    .before(i.children[1].cloneNode(true)));
