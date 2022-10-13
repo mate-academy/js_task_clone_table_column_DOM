@@ -1,12 +1,12 @@
 'use strict';
 
-function add(a, b) {
-  const row = document.querySelector(a);
+function add(folder, teg) {
+  const row = document.querySelector(folder);
 
   for (let i = 0; i <= row.children.length - 1; i++) {
     const text = row.rows[i].cells[1].innerHTML;
 
-    const item = document.createElement(b);
+    const item = document.createElement(teg);
 
     item.innerText = text;
 
