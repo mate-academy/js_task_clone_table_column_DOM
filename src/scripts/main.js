@@ -14,6 +14,6 @@ function add(folder, tag) {
   }
 }
 
-add('tfoot', 'th');
-add('thead', 'th');
-add('tbody', 'th');
+add('tfoot', 'td');
+add('thead', 'td');
+add('tbody', 'td');
