@@ -1,22 +1,11 @@
 'use strict';
 
-const tbody = document.querySelector('tbody');
-const thead = document.querySelector('thead');
+const table = document.querySelector('table');
 
-function sortTable(index) {
-  const sortedRows = [...tbody.rows].sort((rowA, rowB) => {
-    const value1 = rowA.cells[index].innerHTML;
-    const value2 = rowB.cells[index].innerHTML;
-
-    return isNaN(value1)
-      ? value1.localeCompare(value2)
-      : value1 - value2;
+function cloneTable(index, index2) {
+  [...table.rows].forEach((el) => {
+    el.children[index2].before(el.children[index].cloneNode(true));
   });
-
-  tbody.append(...sortedRows);
 };
 
-thead.addEventListener('click', (ev) => {
-  const index = ev.target.cellIndex;
-  sortTable(index);
-});
+cloneTable(1, 4);
