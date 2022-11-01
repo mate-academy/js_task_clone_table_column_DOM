@@ -2,9 +2,9 @@
 
 const table = document.querySelector('table');
 
-function cloneTable(index, index2) {
-  [...table.rows].forEach((el) => {
-    el.children[index2].before(el.children[index].cloneNode(true));
+function cloneTable(rowIndexOld, rowIndexNew) {
+  [...table.rows].forEach((row) => {
+    row.children[rowIndexNew].before(row.children[rowIndexOld].cloneNode(true));
   });
 };
 
