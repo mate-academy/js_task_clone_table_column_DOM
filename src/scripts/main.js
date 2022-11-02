@@ -1,3 +1,5 @@
 'use strict';
 
-// write your code here
+const colum = document.querySelectorAll('tr');
+
+colum.forEach(item => item.children[3].after(item.children[1].cloneNode(true)));
