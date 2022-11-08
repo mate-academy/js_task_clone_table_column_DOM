@@ -2,11 +2,16 @@
 
 const rows = document.querySelectorAll('tr');
 
-rows.forEach(row => {
-  const columTo = document.createElement('td');
+for (let i = 0; i < rows.length; i++) {
+  if (i === 0 || i === rows.length - 1) {
+    const columToPastHeadFoot = document.createElement('th');
 
-  columTo.textContent = row.cells[1].innerText;
-  row.insertBefore(columTo, row.cells[4]);
+    columToPastHeadFoot.textContent = rows[i].cells[1].innerText;
+    rows[i].insertBefore(columToPastHeadFoot, rows[i].cells[4]);
+  } else {
+    const columToPast = document.createElement('td');
 
-  return row;
-});
+    columToPast.textContent = rows[i].cells[1].innerText;
+    rows[i].insertBefore(columToPast, rows[i].cells[4]);
+  }
+}
