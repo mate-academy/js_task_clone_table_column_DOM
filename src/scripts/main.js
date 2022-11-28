@@ -3,18 +3,20 @@
 function createColumn(column, position) {
   const table = document.querySelector('table');
 
-  [...table.children].map(parentElement => {
-    [...parentElement.children].map(childElement => {
-      let newElement;
+  [...table.children].map(grandfatherElement => {
+    [...grandfatherElement.children].map(fatherElement => {
+      let newChildElement;
 
-      parentElement === table.querySelector('tbody')
-        ? newElement = document.createElement('td')
-        : newElement = document.createElement('th');
+      grandfatherElement === table.querySelector('tbody')
+        ? newChildElement = document.createElement('td')
+        : newChildElement = document.createElement('th');
 
-      newElement.textContent = childElement.children[column - 1].textContent;
-      childElement.insertBefore(newElement, childElement.children[position]);
+      newChildElement.textContent = fatherElement.children[column].textContent;
+      fatherElement.insertBefore(
+        newChildElement,fatherElement.children[position]
+      );
     });
   });
 }
 
-createColumn(2, 4);
+createColumn(1, 4);
