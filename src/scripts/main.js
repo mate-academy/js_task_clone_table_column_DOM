@@ -1,3 +1,9 @@
 'use strict';
 
-// write your code here
+const cell = document.querySelectorAll('tr');
+
+cell.forEach(element => {
+  const value = element.children[1].cloneNode(true);
+
+  element.insertBefore(value, element.children[4]);
+});
