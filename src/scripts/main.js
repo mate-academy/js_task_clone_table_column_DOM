@@ -1,9 +1,9 @@
 'use strict';
 
-const cell = document.querySelectorAll('tr');
+const rows = document.querySelectorAll('tr');
 
-cell.forEach(element => {
-  const value = element.children[1].cloneNode(true);
+rows.forEach(row => {
+  const value = row.children[1].cloneNode(true);
 
-  element.insertBefore(value, element.children[4]);
+  row.insertBefore(value, row.children[4]);
 });
