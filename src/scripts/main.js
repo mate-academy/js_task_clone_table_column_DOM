@@ -1,9 +1,9 @@
 'use strict';
 
 const addElement = (element, collection) => {
-  const newElement = document.createElement('th');
+  const newElement = collection.item(1).cloneNode(true);
 
-  newElement.innerHTML = 'Position';
+  newElement.innerHTML = collection.item(1).innerHTML;
 
   element.parentNode
     .insertBefore(newElement, collection.item(collection.length - 1));
@@ -26,13 +26,12 @@ addElement(elementsFoot
 const elementsTbody = document.querySelector('tbody').children;
 
 for (let i = 0; i < elementsTbody.length; i++) {
-  const cloneText = elementsTbody[i].children.item(1).innerHTML;
   const lastelement = elementsTbody[i].children
     .item(elementsTbody[i].children.length - 1);
 
-  const newElement = document.createElement('td');
+  const newElement = elementsTbody[i].children.item(1).cloneNode(true);
 
-  newElement.innerHTML = cloneText;
+  newElement.innerHTML = elementsTbody[i].children.item(1).innerHTML;
 
   elementsTbody[i].insertBefore(newElement, lastelement);
 }
