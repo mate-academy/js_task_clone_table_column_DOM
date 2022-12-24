@@ -1,21 +1,11 @@
 'use strict';
 
-const rootTable = document.querySelector('table');
-const arrayOfTr = [...rootTable.rows];
+const elementsTr = document.querySelectorAll('tr');
 
-arrayOfTr.forEach((tr, index) => {
-  const fromCopy = tr.cells[1];
-  const newTr = fromCopy.cloneNode(true);
+const cloneTableColumn = (rows = elementsTr, from = 2, to = 4) => {
+  rows.forEach(el => {
+    el.cells[to - 1].after(el.cells[from - 1].cloneNode(true));
+  });
+};
 
-  function appendElements(tablePart = '') {
-    rootTable[tablePart].rows[0].children[4].before(newTr);
-  }
-
-  if (index === 0) {
-    appendElements('tHead');
-  } else if (index === arrayOfTr.length - 1) {
-    appendElements('tFoot');
-  } else {
-    rootTable.tBodies[0].children[index - 1].children[4].before(newTr);
-  }
-});
+cloneTableColumn(elementsTr, 2, 4);
