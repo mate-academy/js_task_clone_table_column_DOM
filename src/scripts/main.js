@@ -3,13 +3,13 @@
 const line = document.querySelectorAll('tr');
 
 for (const key of line) {
-  let neww = document.createElement('th');
+  let column = document.createElement('th');
 
   if (key.children[1].tagName === 'TD') {
-    neww = document.createElement('td');
+    column = document.createElement('td');
   }
 
-  neww.innerText = key.children[1].innerText;
+  column.innerText = key.children[1].innerText;
 
-  key.children[4].before(neww);
+  key.children[4].before(column);
 }
