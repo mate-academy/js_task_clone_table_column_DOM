@@ -9,7 +9,9 @@ for (const item of tr) {
   th.textContent = item.children[1].textContent;
   td.textContent = item.children[1].textContent;
 
+  const lastChild = item.lastElementChild;
+
   item.firstElementChild.tagName === 'TH'
-    ? item.insertBefore(th, item.lastElementChild)
-    : item.insertBefore(td, item.lastElementChild);
+    ? lastChild.before(th)
+    : lastChild.before(td);
 }
