@@ -9,7 +9,6 @@ trElements.forEach((tr, i, arr) => {
     cloneCell = document.createElement('th');
   }
 
-  cloneCell.textContent = [...tr.children]
-    .find((el, index) => index === 1).textContent;
+  cloneCell.textContent = [...tr.children][1].textContent;
   tr.children[4].before(cloneCell);
 });
