@@ -4,12 +4,12 @@ const table = document.querySelector('table');
 
 const list = table.rows;
 
-[...list].forEach(element => {
-  const text = element.cells[1].innerText;
+[...list].forEach(person => {
+  const position = person.cells[1].innerText;
 
-  const td = document.createElement(element.firstElementChild.tagName);
+  const td = document.createElement(person.firstElementChild.tagName);
 
-  td.textContent = text;
+  td.textContent = position;
 
-  element.insertBefore(td, element.lastElementChild);
+  person.insertBefore(td, person.lastElementChild);
 });
