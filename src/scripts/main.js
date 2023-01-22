@@ -10,18 +10,18 @@ function cloneTablbeColumn(table, originIndex, insertBeforeIndex) {
     const rowItems = row.children;
     const rowItem = rowItems[originIndex];
 
-    if (rowItem.tagName === 'TH') {
-      const th = document.createElement('th');
-
-      th.textContent = rowItem.textContent;
-      row.insertBefore(th, rowItems[insertBeforeIndex]);
-    }
-
-    if (rowItem.tagName === 'TD') {
-      const td = document.createElement('td');
-
-      td.textContent = rowItem.textContent;
-      row.insertBefore(td, rowItems[insertBeforeIndex]);
-    }
+    insert(
+      rowItem.tagName,
+      rowItem.textContent,
+      row,
+      rowItems[insertBeforeIndex]
+    );
   }
+}
+
+function insert(tagName, text, rowToInsert, insertBefore) {
+  const element = document.createElement(tagName.toLowerCase());
+
+  element.textContent = text;
+  rowToInsert.insertBefore(element, insertBefore);
 }
