@@ -27,14 +27,6 @@ footerTR.insertAdjacentHTML('beforeend', `
   <th>Salary</th>
 `);
 
-bodyTr.forEach((tr) => {
-  const newCell = tr.insertCell(4);
-
-  const bodyId = tr.cells[1].innerHTML;
-
-  newCell.append(bodyId);
-});
-
 /*
 for (let i = 0; i < bodyTr.length; i++) {
   const td = tableBody.rows[i].cells[1];
@@ -42,3 +34,11 @@ for (let i = 0; i < bodyTr.length; i++) {
   console.log(td);
 }
 */
+
+bodyTr.forEach((tr) => {
+  const newCell = tr.insertCell(4);
+
+  const bodyId = tr.cells[1].innerHTML;
+
+  newCell.append(bodyId);
+});
