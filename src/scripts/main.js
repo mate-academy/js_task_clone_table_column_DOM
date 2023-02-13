@@ -1,27 +1,30 @@
 'use strict';
 
-const table = document.querySelector('table');
+const tableHeadRow = document
+  .querySelector('table')
+  .querySelector('thead')
+  .querySelector('tr');
 
-const tableHeadRow = table.querySelector('thead').querySelector('tr');
-const tableBodyRow = table.querySelector('tbody').querySelectorAll('tr');
-const tableFootRow = table.querySelector('tfoot').querySelector('tr');
+const tableBodyRow = document
+  .querySelector('table')
+  .querySelector('tbody')
+  .querySelectorAll('tr');
 
-const copyHead = document.createElement('th');
+const tableFootRow = document
+  .querySelector('table')
+  .querySelector('tfoot')
+  .querySelector('tr');
 
-copyHead.textContent = tableHeadRow.children[1].textContent;
+const copyHead = tableHeadRow.children[1].cloneNode(true);
 
 tableHeadRow.insertBefore(copyHead, tableHeadRow.children[4]);
 
 for (const row of tableBodyRow) {
-  const copyBody = document.createElement('td');
-
-  copyBody.textContent = row.children[1].textContent;
+  const copyBody = row.children[1].cloneNode(true);
 
   row.insertBefore(copyBody, row.children[4]);
 }
 
-const copyFoot = document.createElement('th');
-
-copyFoot.textContent = tableFootRow.children[1].textContent;
+const copyFoot = tableFootRow.children[1].cloneNode(true);
 
 tableFootRow.insertBefore(copyFoot, tableFootRow.children[4]);
