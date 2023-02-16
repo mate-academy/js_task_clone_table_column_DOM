@@ -3,8 +3,7 @@
 const data = document.querySelectorAll('tr');
 
 for (const element of data) {
-  const th = document.createElement('th');
+  const newNode = element.children[1].cloneNode(true);
 
-  th.textContent = element.children[1].textContent;
-  element.insertBefore(th, element.children[4]);
+  element.insertBefore(newNode, element.children[4]);
 }
