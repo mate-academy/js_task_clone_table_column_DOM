@@ -1,13 +1,13 @@
 'use strict';
 
-const lengthCollection = document.getElementsByTagName('tr');
+const employees = document.getElementsByTagName('tr');
 
-for (let i = 0; i < lengthCollection.length; i++) {
+for (let i = 0; i < employees.length; i++) {
   const collectionTr = document.getElementsByTagName('tr')[i];
 
-  const child = collectionTr.children[1];
+  const positionColumn = collectionTr.children[1];
 
-  const copyChild = child.cloneNode(true);
+  const positionColumnCopy = positionColumn.cloneNode(true);
 
-  collectionTr.insertBefore(copyChild, collectionTr.children[4]);
+  collectionTr.insertBefore(positionColumnCopy, collectionTr.children[4]);
 }
