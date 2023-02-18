@@ -34,6 +34,6 @@ function copyPasteColumnAfter(columnNumber, cellsArray) {
   }
 }
 
-const cellsArray = getTableColumn(2);
+const secondColumn = getTableColumn(2);
 
-copyPasteColumnAfter(4, cellsArray);
+copyPasteColumnAfter(4, secondColumn);
