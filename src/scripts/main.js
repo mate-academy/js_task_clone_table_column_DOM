@@ -16,21 +16,26 @@ function getTableColumn(columnNumber) {
 }
 
 function copyPasteColumnAfter(columnNumber, cellsArray) {
-  for (let i = 0; i < cellsArray.length; i++) {
-    const tableHead = document.createElement('th');
-    const tableData = document.createElement('td');
+  const tableHeadData = document.createElement('th');
 
+  tableHeadData.innerHTML = cellsArray[0];
+
+  const tableFootData = document.createElement('th');
+
+  tableFootData.innerHTML = cellsArray[cellsArray.length - 1];
+
+  const tableHead = tableRows[0].children;
+  const tableFoot = tableRows[tableRows.length - 1].children;
+
+  tableHead[columnNumber - 1].after(tableHeadData);
+  tableFoot[columnNumber - 1].after(tableFootData);
+
+  for (let i = 1; i < cellsArray.length - 1; i++) {
+    const tableData = document.createElement('td');
     const tableRowCollection = tableRows[i].children;
 
-    if (i === 0 || i === cellsArray.length - 1) {
-      tableHead.innerHTML = cellsArray[i];
-
-      tableRowCollection[columnNumber - 1].after(tableHead);
-    } else {
-      tableData.innerHTML = cellsArray[i];
-
-      tableRowCollection[columnNumber - 1].after(tableData);
-    }
+    tableData.innerHTML = cellsArray[i];
+    tableRowCollection[columnNumber - 1].after(tableData);
   }
 }
 
