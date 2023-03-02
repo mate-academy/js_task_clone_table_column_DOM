@@ -1,9 +1,9 @@
 'use strict';
 
-const rows = document.querySelectorAll('tr');
+const lines = document.querySelectorAll('tr');
 
-for (const row of rows) {
-  const clone = row.children[1].cloneNode(true);
+for (const line of lines) {
+  const clone = line.children[1].cloneNode(true);
 
-  row.children[4].before(clone);
+  line.children[4].before(clone);
 }
