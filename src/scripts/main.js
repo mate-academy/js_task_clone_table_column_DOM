@@ -1,12 +1,9 @@
 'use strict';
 
-const table = document.querySelector('table');
-const rows = table.rows; 
+const row = document.querySelectorAll('tr');
 
-for (let i = 0; i < rows.length; i++) {
-  const secondCell = rows[i].cells[1]; 
-  const newCell = document.createElement('td'); 
-  newCell.textContent = secondCell.textContent; 
-  const lastCell = rows[i].cells[rows[i].cells.length - 1];
-  rows[i].insertBefore(newCell, lastCell);
+for (const cell of row) {
+  const newCell = cell.children[1].cloneNode(true);
+
+  cell.children[3].after(newCell);
 }
