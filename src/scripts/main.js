@@ -1,3 +1,9 @@
 'use strict';
 
-// write your code here
+const tableRow = document.querySelectorAll('tr');
+
+for (const row of tableRow) {
+  const clonedColumn = row.children[1].cloneNode(true);
+
+  row.children[3].after(clonedColumn);
+}
