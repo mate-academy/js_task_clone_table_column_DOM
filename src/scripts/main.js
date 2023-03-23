@@ -1,9 +1,11 @@
 'use strict';
 
 const table = document.querySelector('table');
+const secondCell = 1;
+const fifthCell = 4;
 
 for (const row of table.rows) {
-  const clone = row.cells[1].cloneNode(true);
+  const clone = row.cells[secondCell].cloneNode(true);
 
-  row.cells[4].before(clone);
+  row.cells[fifthCell].before(clone);
 }
