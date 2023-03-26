@@ -1,21 +1,25 @@
 'use strict';
 
-function CloneElementOfRow(row) {
-  const cloneElement = row.cells[columnIndexToClone].cloneNode(true);
-  const recipientElement = row.cells[columnIndexRecipient];
+function CloneElementOfRows(rows, from, to) {
+  [...rows].forEach(row => {
+    const cloneElement = row.cells[from].cloneNode(true);
+    const recipientElement = row.cells[to];
 
-  recipientElement.insertAdjacentElement('beforebegin', cloneElement);
+    recipientElement.insertAdjacentElement('beforebegin', cloneElement);
+  });
 }
 
 const tableElement = document.querySelector('table');
 
-const tableHeadElement = tableElement.tHead.rows[0];
-const tableBodyRowElements = tableElement.tBodies[0].rows;
-const tableFootElement = tableElement.tFoot.rows[0];
+const {
+  tHead,
+  tBodies,
+  tFoot,
+} = tableElement;
 
 const columnIndexToClone = 1;
-const columnIndexRecipient = tableHeadElement.cells.length - 1;
+const columnIndexRecipient = 4;
 
-CloneElementOfRow(tableHeadElement);
-CloneElementOfRow(tableFootElement);
-[...tableBodyRowElements].forEach(CloneElementOfRow);
+[tHead, ...tBodies, tFoot].forEach(({ rows }) => (
+  CloneElementOfRows(rows, columnIndexToClone, columnIndexRecipient)
+));
