@@ -1,20 +1,18 @@
 'use strict';
 
 const table = document.querySelector('table');
-const tableChild = table.children;
+const rows = table.rows;
 
-for (let i = 0; i < tableChild.length; i++) {
-  copyColumn(2, 4, tableChild[i]);
-};
+[...rows].forEach(row => {
+  copyColumn(2, 4, row);
+});
 
-function copyColumn(columnToCopy, toPasteAfter, tPart) {
-  const copyIndex = columnToCopy - 1;
+function copyColumn(sourceIndex, targetIndex, row) {
+  const sourceCell = row.cells[sourceIndex - 1];
 
-  for (let i = 0; i < tPart.children.length; i++) {
-    const newCell = tPart.rows[i].cells[copyIndex];
-
-    tPart.rows[i]
-      .insertBefore(newCell.cloneNode(true),
-        tPart.rows[i].children[toPasteAfter]);
-  };
+  [...row.cells].forEach((cell, index) => {
+    if (index === targetIndex) {
+      row.insertBefore(sourceCell.cloneNode(true), cell);
+    }
+  });
 };
