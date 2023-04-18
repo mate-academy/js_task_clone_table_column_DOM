@@ -3,10 +3,12 @@
 const table = document.querySelector('table');
 
 [...table.rows].forEach((item, index) => {
-  const element = table.rows[index].cells[1];
+  const column = 1;
+  const newColumn = 4;
+  const element = table.rows[index].cells[column];
   const copy = document.createElement(element.tagName);
 
   copy.innerText = element.innerText;
 
-  table.rows[index].insertBefore(copy, table.rows[index].cells[4]);
-})
+  table.rows[index].insertBefore(copy, table.rows[index].cells[newColumn]);
+});
