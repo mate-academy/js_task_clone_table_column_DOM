@@ -1,8 +1,6 @@
 'use strict';
 
 const table = document.querySelector('table');
-const tbodies = [...table.tBodies];
-const cellsInColumn2 = [];
 
 const copyAndPaste = (copy, pasteAfter) => {
   pasteAfter.after(copy.cloneNode(true));
@@ -11,14 +9,9 @@ const copyAndPaste = (copy, pasteAfter) => {
 copyAndPaste(table.rows[0].cells[1], table.rows[0].cells[3]);
 copyAndPaste(table.rows[13].cells[1], table.rows[13].cells[3]);
 
-tbodies.forEach((tbody) => {
-  [...tbody.rows].forEach((row) => {
-    cellsInColumn2.push(row.cells[1]);
-  });
+[...table.tBodies[0].rows].forEach(row => {
+  const cell2 = row.cells[1].cloneNode(true);
+  const cell5 = row.insertCell(4);
 
-  [...tbody.rows].forEach((row, index) => {
-    const cell5 = row.insertCell(4);
-
-    cell5.innerHTML = cellsInColumn2[index].innerHTML;
-  });
+  cell5.innerHTML = cell2.innerHTML;
 });
