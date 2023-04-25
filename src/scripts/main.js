@@ -1,23 +1,11 @@
 'use strict';
 
-const rows = document.querySelectorAll('table tbody tr');
+const table = document.querySelector('table');
 
-rows.forEach(row => {
-  const newCell = document.createElement('td');
+for (let i = 0; i < table.rows.length; i++) {
+  const position = table.rows[i].cells[1];
+  const salary = table.rows[i].cells[4];
+  const positionCopy = position.cloneNode(true);
 
-  newCell.textContent = row.cells[1].textContent;
-
-  row.insertBefore(newCell, row.cells[row.cells.length - 1]);
-});
-
-const tfoot = document.querySelector('table tfoot tr');
-const newFooterCell = document.createElement('th');
-
-newFooterCell.textContent = 'Position';
-tfoot.insertBefore(newFooterCell, tfoot.cells[tfoot.cells.length - 1]);
-
-const thead = document.querySelector('table thead tr');
-const newHeaderCell = document.createElement('th');
-
-newHeaderCell.textContent = 'Position';
-thead.insertBefore(newHeaderCell, thead.cells[thead.cells.length - 1]);
+  table.rows[i].insertBefore(positionCopy, salary);
+}
