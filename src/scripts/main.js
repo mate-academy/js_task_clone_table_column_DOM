@@ -3,8 +3,8 @@
 const rows = document.querySelector('table').rows;
 
 for (const row of rows) {
-  const secondColumn = row.children[1].cloneNode(true);
-  const lastColumn = row.lastElementChild;
+  const secondCell = row.children[1].cloneNode(true);
+  const lastCell = row.lastElementChild;
 
-  lastColumn.insertAdjacentHTML('beforebegin', secondColumn.outerHTML);
+  lastCell.insertAdjacentHTML('beforebegin', secondCell.outerHTML);
 };
