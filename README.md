@@ -6,7 +6,7 @@
     - Run `npm run test:only -- -l` to run fast test with additional info in console ignoring linter.
 
 ### Task: Copy/Paste table column
-
+OK
 Clone and paste element to document... Easy? Okay, but what do you say when I aks you to clone and paste table column? This task is for real heroes!
 
 Your task: Clone the second column from the table, and append it to the table. To increase the complexity, append it in front of the last table column.
