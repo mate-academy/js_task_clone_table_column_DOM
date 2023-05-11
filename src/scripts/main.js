@@ -8,9 +8,7 @@ copyColumn(tableEl, columnToCopy);
 function copyColumn(table, toCopy = 1) {
   [...table.children].forEach((child) => {
     [...child.rows].forEach((row) => {
-      const additionalNode = row.lastElementChild.cloneNode();
-
-      additionalNode.textContent = row.cells[toCopy].textContent;
+      const additionalNode = row.cells[toCopy].cloneNode(true);
 
       row.lastElementChild
         .insertAdjacentHTML('beforebegin', additionalNode.outerHTML);
