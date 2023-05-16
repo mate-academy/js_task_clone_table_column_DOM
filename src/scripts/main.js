@@ -3,12 +3,12 @@
 const rows = document.querySelectorAll('tr');
 
 for (let i = 0; i < rows.length; i++) {
-  const row = document.querySelectorAll('tr')[i];
+  const row = rows[i];
 
-  cloneColumn(row);
+  cloneSecondCell(row);
 }
 
-function cloneColumn(column) {
+function cloneSecondCell(column) {
   const copyColumn = column.children[1].cloneNode(true);
 
   return column.children[4].before(copyColumn);
