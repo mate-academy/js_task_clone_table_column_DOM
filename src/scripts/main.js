@@ -1,6 +1,6 @@
 'use strict';
 
-const allTrs = document.querySelectorAll('table tr');
+const allTrs = document.querySelectorAll('tr');
 
 for (const tr of allTrs) {
   const thElements = tr.getElementsByTagName('th');
@@ -9,12 +9,12 @@ for (const tr of allTrs) {
     const copyiedElement = document.createElement('th');
 
     copyiedElement.innerText = thElements[1].innerText;
-    tr.append(copyiedElement);
+    tr.insertBefore(copyiedElement, tr.lastElementChild);
   } else {
     const tdElements = tr.getElementsByTagName('td');
-    const copyiedElement = document.createElement('td');
+    const copiedElement = document.createElement('td');
 
-    copyiedElement.innerText = tdElements[1].innerText;
-    tr.append(copyiedElement);
+    copiedElement.innerText = tdElements[1].innerText;
+    tr.insertBefore(copiedElement, tr.lastElementChild);
   }
 }
