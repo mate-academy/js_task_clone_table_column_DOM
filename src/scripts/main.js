@@ -6,17 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const rowsData = document.querySelectorAll('tr');
 
   for (const row of rowsData) {
-    const copyCell = row.children[columnToCopy - 1];
-    const columnToInsertNumber = row.children[row.children.length - 1];
+    const copyCell
+      = row.children[columnToCopy - 1].cloneNode(true);
+    const columnToInsert
+      = row.children[row.children.length - 1];
 
-    copyAndInsertCell(copyCell, columnToInsertNumber);
-  }
-
-  function copyAndInsertCell(cellToCopy, cellToInsertBefore) {
-    const htmlToInsert = `<${cellToCopy.tagName.toLowerCase()}>`
-        + `${cellToCopy.textContent}`
-        + `</${cellToCopy.tagName.toLowerCase()}>`;
-
-    cellToInsertBefore.insertAdjacentHTML('beforebegin', htmlToInsert);
+    columnToInsert.parentNode.insertBefore(copyCell, columnToInsert);
   }
 });
