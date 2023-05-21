@@ -2,7 +2,7 @@
 
 const tableHeader = document.querySelector('table > thead > tr');
 const tableFooter = document.querySelector('table > tfoot > tr');
-const item = document.querySelector('th:nth-child(2)');
+const item = document.querySelector('th:nth-child(3)');
 
 const tableRow = document.querySelectorAll('table > tbody > tr');
 
