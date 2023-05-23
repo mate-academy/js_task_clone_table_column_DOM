@@ -1,6 +1,5 @@
 'use strict';
 
-// write your code here
 const rows = document.querySelectorAll('tr');
 
 rows.forEach((row) => {
