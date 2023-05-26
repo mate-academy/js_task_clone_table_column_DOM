@@ -19,7 +19,7 @@ Expected table:
 ![Result](./src/images/result.png)
 
 In this task, we don't provide details instructions. But below are some hints how to do this task:
-- JavaScript document has methods to work with tables. [Theory tables](https://javascript.info/dom-navigation#dom-navigation-tables) 
+- JavaScript document has methods to work with tables. [Theory tables](https://javascript.info/dom-navigation#dom-navigation-tables)
 - Before you start review the table structure
 - Remember that in this task HTML table has `tbody`, `thead`, `tfoot` sections.
 - As a first step try to append first column to the end of the table.
