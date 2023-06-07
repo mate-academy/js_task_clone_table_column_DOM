@@ -1,3 +1,9 @@
 'use strict';
 
-// write your code here
+const getColumnTable = document.querySelectorAll('tr');
+
+getColumnTable.forEach(item => {
+  const cloneNode = item.children[1];
+
+  item.append(cloneNode.cloneNode(true));
+});
