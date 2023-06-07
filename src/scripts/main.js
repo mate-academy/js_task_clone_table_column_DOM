@@ -5,5 +5,7 @@ const getColumnTable = document.querySelectorAll('tr');
 getColumnTable.forEach(item => {
   const cloneNode = item.children[1];
 
-  item.append(cloneNode.cloneNode(true));
+  const lastColumn = item.children[4];
+
+  item.insertBefore(cloneNode.cloneNode(true), lastColumn);
 });
