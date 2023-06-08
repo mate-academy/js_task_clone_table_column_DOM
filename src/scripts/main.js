@@ -1,9 +1,9 @@
 'use strict';
 
-const trElem = document.querySelectorAll('tr');
+const tableRows = document.querySelectorAll('tr');
 
-for (const elem of [...trElem]) {
-  const copyCell = [...elem.cells][1].cloneNode(true);
+for (const row of tableRows) {
+  const copyCell = row.cells[1].cloneNode(true);
 
-  elem.insertBefore(copyCell, [...elem.cells][4]);
+  row.insertBefore(copyCell, [...row.cells][4]);
 }
