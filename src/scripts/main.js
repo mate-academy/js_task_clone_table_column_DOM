@@ -1,12 +1,11 @@
 'use strict';
 
-const table = document.body.firstElementChild;
+const tableRows = document.querySelectorAll('tr');
 
-for (let i = 0; i < table.rows.length; i++) {
-  const columnToClone = table.rows[i].cells[1];
+tableRows.forEach(row => {
+  const columnToClone = row.cells[1];
   const tagToCreate = document.createElement(columnToClone.tagName);
 
   tagToCreate.textContent = columnToClone.textContent;
-
-  table.rows[i].cells[4].before(tagToCreate);
-}
+  row.cells[row.cells.length - 1].before(tagToCreate);
+});
