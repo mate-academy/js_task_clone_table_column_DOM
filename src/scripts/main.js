@@ -14,7 +14,7 @@ rows.forEach(row => {
 
 const headerRow = table.querySelector('thead tr');
 const newHeaderCell = document.createElement('th');
-const copyCellName = Array.from(headerRow.querySelectorAll('th'));
+const copyCellName = Array.from(headerRow.children);
 
 newHeaderCell.textContent = copyCellName[1].textContent;
 headerRow.lastElementChild.insertAdjacentElement('beforebegin', newHeaderCell);
