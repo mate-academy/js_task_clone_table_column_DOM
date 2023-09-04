@@ -13,14 +13,20 @@ rows.forEach(row => {
 });
 
 const headerRow = table.querySelector('thead tr');
-const newHeaderCell = document.createElement('th');
-const copyCellName = Array.from(headerRow.children);
-
-newHeaderCell.textContent = copyCellName[1].textContent;
-headerRow.lastElementChild.insertAdjacentElement('beforebegin', newHeaderCell);
-
 const footerRow = table.querySelector('tfoot tr');
-const newFooterCell = document.createElement('th');
 
-newFooterCell.textContent = copyCellName[1].textContent;
-footerRow.lastElementChild.insertAdjacentElement('beforebegin', newFooterCell);
+function insertCellInHeaderAndFooter(contentCell) {
+  const newCell = document.createElement('th');
+
+  newCell.textContent = contentCell.textContent;
+  headerRow.lastElementChild.insertAdjacentElement('beforebegin', newCell);
+
+  const newFooterCell = newCell.cloneNode(true);
+
+  footerRow.lastElementChild
+    .insertAdjacentElement('beforebegin', newFooterCell);
+}
+
+const contentHeaderCell = headerRow.querySelector('th:nth-child(2)');
+
+insertCellInHeaderAndFooter(contentHeaderCell);
