@@ -6,7 +6,7 @@ const rows = document.querySelectorAll('table tr');
 
 for (let i = 0; i < rows.length; i++) {
   const row = rows[i];
-  const newCell = document.createElement('td');
+  const newCell = document.createElement('th');
   const cellToclone = row.cells[1];
   const lastCell = row.lastElementChild;
 
