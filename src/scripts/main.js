@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 'use strict';
 
 const table = document.querySelector('table');
@@ -7,8 +6,8 @@ const tableHead = table.querySelector('thead').querySelector('tr');
 const tableBody = table.querySelector('tbody').querySelectorAll('tr');
 const tableFoot = table.querySelector('tfoot').querySelector('tr');
 
-const th = createElement('th', tableHead);
-const tf = createElement('th', tableFoot);
+createElement('th', tableHead);
+createElement('th', tableFoot);
 
 function createElement(type, parentElement) {
   const element = document.createElement(type);
