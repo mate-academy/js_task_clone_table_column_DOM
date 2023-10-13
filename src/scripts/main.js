@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 const table = document.querySelector('table');
@@ -6,19 +7,21 @@ const tableHead = table.querySelector('thead').querySelector('tr');
 const tableBody = table.querySelector('tbody').querySelectorAll('tr');
 const tableFoot = table.querySelector('tfoot').querySelector('tr');
 
-const th = document.createElement('th');
+const th = createElement('th', tableHead);
+const tf = createElement('th', tableFoot);
 
-th.innerText = tableHead.children[1].innerHTML;
-tableHead.children[4].before(th);
+function createElement(type, parentElement) {
+  const element = document.createElement(type);
 
-const tf = document.createElement('th');
-
-tf.innerText = tableFoot.children[1].innerHTML;
-tableFoot.children[4].before(tf);
+  element.innerText = parentElement.children[1].innerHTML;
+  parentElement.children[4].before(element);
+}
 
 tableBody.forEach(tr => {
   const td = document.createElement('td');
+  const copyTh = tr.children[1];
+  const placeToStand = tr.children[4];
 
-  td.innerText = tr.children[1].innerHTML;
-  tr.children[4].before(td);
+  td.innerText = copyTh.innerHTML;
+  placeToStand.before(td);
 });
