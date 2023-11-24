@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-11-24T22:33:15.047Z",
+    "end": "2023-11-24T22:33:15.318Z",
+    "duration": 254,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d40a5d01-6f08-4c16-ae82-8e8639ba927a",
+      "title": "",
+      "fullFile": "cypress/integration/taskCloneTableColumn.spec.js",
+      "file": "cypress/integration/taskCloneTableColumn.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9f27dbb3-dff8-48ff-b722-451919180962",
+          "title": "Clone table app",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should only change number of columns in original table",
+              "fullTitle": "Clone table app should only change number of columns in original table",
+              "timedOut": null,
+              "duration": 219,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('table').children().should('have.length', 3);\ncy.get('thead > tr').children().should('have.length', 6);\ncy.get('thead').children().should('have.length', 1);\ncy.get('tbody').children().should('have.length', 12);\ncy.get('tfoot').children().should('have.length', 1);",
+              "err": {},
+              "uuid": "d0b33c18-4bf0-4596-9a7a-c61b7a2f8865",
+              "parentUUID": "9f27dbb3-dff8-48ff-b722-451919180962",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should copy second column and paste between fourth and sixth",
+              "fullTitle": "Clone table app should copy second column and paste between fourth and sixth",
+              "timedOut": null,
+              "duration": 35,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('th:nth-child(2)').then($th2 => {\n  const txt = $th2.text();\n  cy.get('th:nth-child(5)').should($th5 => {\n    expect($th5.text()).to.eq(txt);\n  });\n});\ncy.get('td:nth-child(2)').then($td2 => {\n  const txt = $td2.text();\n  cy.get('td:nth-child(5)').should($td5 => {\n    expect($td5.text()).to.eq(txt);\n  });\n});",
+              "err": {},
+              "uuid": "17820c77-d55b-41af-8fa6-e5c2008d7fef",
+              "parentUUID": "9f27dbb3-dff8-48ff-b722-451919180962",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d0b33c18-4bf0-4596-9a7a-c61b7a2f8865",
+            "17820c77-d55b-41af-8fa6-e5c2008d7fef"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 254,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "raw_reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
