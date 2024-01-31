@@ -2,9 +2,9 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   const table = document.querySelector('table');
-  const secondColumn = cloneColumn(table, 2);
+  const secondCoolumn = cloneColumn(table, 2);
 
-  insertColumn(table, secondColumn, 4);
+  insertColumn(table, secondCoolumn, 4);
 });
 
 function cloneColumn(table, columnIndex) {
