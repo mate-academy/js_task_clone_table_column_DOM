@@ -4,38 +4,33 @@ document.addEventListener('DOMContentLoaded', function() {
   const table = document.querySelector('table');
 
   const headerRow = table.querySelector('thead tr');
+  const headerPosition = headerRow.getElementsByTagName('th')[1];
 
-  const newPositionHeader = document.createElement('th');
-
-  newPositionHeader.innerText = 'Position';
+  const clonedHeaderPosition = headerPosition.cloneNode(true);
 
   const salaryHeader = headerRow.querySelector('th:last-child');
 
-  salaryHeader.parentNode.insertBefore(newPositionHeader, salaryHeader);
+  salaryHeader.parentNode.insertBefore(clonedHeaderPosition, salaryHeader);
 
   const footerRow = table.querySelector('tfoot tr');
+  const footerPosition = footerRow.getElementsByTagName('th')[1];
 
-  const newPositionFooter = document.createElement('th');
-
-  newPositionFooter.innerText = 'Position';
+  const clonedFooterPosition = footerPosition.cloneNode(true);
 
   const salaryFooter = footerRow.querySelector('th:last-child');
 
-  salaryFooter.parentNode.insertBefore(newPositionFooter, salaryFooter);
+  salaryFooter.parentNode.insertBefore(clonedFooterPosition, salaryFooter);
 
   const rows = Array.from(
     table.getElementsByTagName('tbody')[0].getElementsByTagName('tr'),
   );
 
   rows.forEach(row => {
-    const position = row.getElementsByTagName('td')[1].innerText;
-
-    const newPositionCell = document.createElement('td');
-
-    newPositionCell.innerText = position;
+    const position = row.getElementsByTagName('td')[1];
+    const clonedPosition = position.cloneNode(true);
 
     const salaryCell = row.getElementsByTagName('td')[4];
 
-    salaryCell.parentNode.insertBefore(newPositionCell, salaryCell);
+    salaryCell.parentNode.insertBefore(clonedPosition, salaryCell);
   });
 });
