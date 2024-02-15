@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2024-02-15T07:24:04.162Z",
-    "end": "2024-02-15T07:24:07.724Z",
-    "duration": 3139,
+    "start": "2024-02-15T07:45:49.500Z",
+    "end": "2024-02-15T07:45:52.553Z",
+    "duration": 2811,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "87399992-87c3-49e9-962f-3409ee338712",
+      "uuid": "c6dbc4d3-6d92-42ab-b616-8878e9fc8c2b",
       "title": "",
       "fullFile": "cypress/integration/taskCloneTableColumn.spec.js",
       "file": "cypress/integration/taskCloneTableColumn.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "244074b4-dc4a-4b03-99ea-75e8e1cd4088",
+          "uuid": "4fae4d85-f870-437c-bdbb-e95119cdbe79",
           "title": "Clone table app",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should only change number of columns in original table",
               "fullTitle": "Clone table app should only change number of columns in original table",
               "timedOut": null,
-              "duration": 2839,
+              "duration": 2722,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.get('table').children().should('have.length', 3);\ncy.get('thead > tr').children().should('have.length', 6);\ncy.get('thead').children().should('have.length', 1);\ncy.get('tbody').children().should('have.length', 12);\ncy.get('tfoot').children().should('have.length', 1);",
               "err": {},
-              "uuid": "02d4d268-3d4d-4332-85e6-c4d8dd882407",
-              "parentUUID": "244074b4-dc4a-4b03-99ea-75e8e1cd4088",
+              "uuid": "8a85a6a0-2b22-4733-9725-60f198992bef",
+              "parentUUID": "4fae4d85-f870-437c-bdbb-e95119cdbe79",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "should copy second column and paste between fourth and sixth",
               "fullTitle": "Clone table app should copy second column and paste between fourth and sixth",
               "timedOut": null,
-              "duration": 300,
+              "duration": 89,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.get('th:nth-child(2)').then($th2 => {\n  const txt = $th2.text();\n  cy.get('th:nth-child(5)').should($th5 => {\n    expect($th5.text()).to.eq(txt);\n  });\n});\ncy.get('td:nth-child(2)').then($td2 => {\n  const txt = $td2.text();\n  cy.get('td:nth-child(5)').should($td5 => {\n    expect($td5.text()).to.eq(txt);\n  });\n});",
               "err": {},
-              "uuid": "48649ba0-fa93-4e3f-8dbe-d88f502a1874",
-              "parentUUID": "244074b4-dc4a-4b03-99ea-75e8e1cd4088",
+              "uuid": "6aa84792-ab64-4f5c-b51d-563f5b0fb951",
+              "parentUUID": "4fae4d85-f870-437c-bdbb-e95119cdbe79",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "02d4d268-3d4d-4332-85e6-c4d8dd882407",
-            "48649ba0-fa93-4e3f-8dbe-d88f502a1874"
+            "8a85a6a0-2b22-4733-9725-60f198992bef",
+            "6aa84792-ab64-4f5c-b51d-563f5b0fb951"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3139,
+          "duration": 2811,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
