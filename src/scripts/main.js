@@ -2,9 +2,9 @@
 
 const table = document.querySelector('table');
 
-for (let i = 0; i < table.rows.length; i++) {
-  const copy = table.rows[i].cells[1].cloneNode(true);
-  const lastElementIndex = table.rows[i].cells.length - 1;
+table.rows.forEach((row) => {
+  const copy = row.cells[1].cloneNode(true);
+  const lastElementIndex = row.cells.length - 1;
 
-  table.rows[i].cells[lastElementIndex].before(copy);
-}
+  row.cells[lastElementIndex].before(copy);
+});
