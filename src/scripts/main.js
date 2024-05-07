@@ -1,13 +1,9 @@
 'use strict';
 
-const tabel = document.querySelector('table');
-const elements = [...tabel.children];
-
 const clone = (rows, position, newPosition) => {
   rows.forEach((row) => {
     const children = row.children;
-    const pastePosition =
-      newPosition > [...children].length ? [...children].length : newPosition;
+    const pastePosition = Math.min(newPosition, children.length);
 
     const cell =
       row.querySelector(`th:nth-child(${position})`) ||
@@ -27,8 +23,7 @@ const clone = (rows, position, newPosition) => {
   });
 };
 
-elements.forEach((element) => {
-  const rows = element.querySelectorAll('tr');
+const table = document.querySelector('table');
+const allRows = [...table.querySelectorAll('tr')];
 
-  clone(rows, 2, 5);
-});
+clone(allRows, 2, 5);
