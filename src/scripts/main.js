@@ -12,8 +12,7 @@ tableRows.forEach((row) => {
     throw new Error('Table does not have enough cells');
   }
 
-  const copyText = row.cells[columnIndexCopy].textContent;
-  const newCell = row.insertCell(columnIndexPaste);
+  const dupNode = row.cells[columnIndexCopy].cloneNode(true);
 
-  newCell.textContent = copyText;
+  row.insertBefore(dupNode, row.cells[columnIndexPaste]);
 });
