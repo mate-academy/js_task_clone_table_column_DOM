@@ -1,12 +1,12 @@
 'use strict';
 
 const table = document.querySelector('table');
-const secondColumnHeader = table.querySelector('thead tr th:nth-child(2)');
+
+const theadRow = table.querySelector('thead tr');
+const secondColumnHeader = theadRow.querySelector('th:nth-child(2)');
 const clonedHeader = secondColumnHeader.cloneNode(true);
 
-table
-  .querySelector('thead tr')
-  .insertBefore(clonedHeader, table.querySelector('thead tr th:last-child'));
+theadRow.insertBefore(clonedHeader, theadRow.querySelector('th:last-child'));
 
 const rows = table.querySelectorAll('tbody tr');
 
