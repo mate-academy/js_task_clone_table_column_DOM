@@ -1,11 +1,10 @@
 'use strict';
 
-const columns = document.querySelectorAll('tr');
+const rows = document.querySelectorAll('tr');
 
-columns.forEach((el) => {
-  const posColumn = el.cells[1];
-  const posColumnClone = posColumn.cloneNode(true);
+rows.forEach((el) => {
+  const posColumn = el.cells[1].cloneNode(true);
   const lastColumn = el.cells[el.cells.length - 1];
 
-  el.insertBefore(posColumnClone, lastColumn);
+  el.insertBefore(posColumn, lastColumn);
 });
