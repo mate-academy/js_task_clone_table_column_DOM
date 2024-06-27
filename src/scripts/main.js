@@ -2,30 +2,18 @@
 
 const table = document.querySelector('table');
 
-function cloneColumnFromTable(tableName, numberColumn) {
-  const tableRows = [...tableName.querySelectorAll('tr')];
-  const arrList = tableRows.map((elem) => {
-    return elem.children[numberColumn - 1];
-  });
+const tableRows = [...table.querySelectorAll('tr')];
 
-  return arrList;
-}
+const arrList = tableRows.map((elem) => {
+  return elem.children[1].innerText;
+});
 
-function addColumnToTable(tableName, columnArr, position) {
-  const column = [...columnArr];
+for (let i = 0; i < tableRows.length; i++) {
+  let tableList = `<td>${arrList[i]}</td>`;
 
-  for (let i = 0; i < tableName.rows.length; i++) {
-    // tableName.rows[i].cells[position].after(column[i]);
-
-    tableName.rows[i].cells[position].insertAdjacentHTML(
-      'afterbegin',
-      column[i],
-    );
+  if (tableRows[i].cells[2].tagName === 'TH') {
+    tableList = `<th>${arrList[i]}</th>`;
   }
+
+  tableRows[i].cells[2].insertAdjacentHTML('afterend', tableList);
 }
-
-const columnFromTable = cloneColumnFromTable(table, 2);
-
-addColumnToTable(table, columnFromTable, 2);
-// eslint-disable-next-line no-console
-console.log(columnFromTable);
