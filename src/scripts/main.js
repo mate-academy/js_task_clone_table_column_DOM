@@ -1,25 +1,11 @@
 'use strict';
 
-const table = document.querySelector('table');
+const table = document.querySelectorAll('table tr');
 
-const rows = table.rows;
+const cloneTr = [...table];
 
-const positionHeader = document.createElement('th');
+cloneTr.forEach((row) => {
+  const duplicateTh = row.children[1].cloneNode(true);
 
-positionHeader.textContent = 'Position';
-
-table.tHead.rows[0].cells[3].insertAdjacentElement('afterend', positionHeader);
-
-const positionFooter = document.createElement('th');
-
-positionFooter.textContent = 'Position';
-
-table.tFoot.rows[0].cells[3].insertAdjacentElement('afterend', positionFooter);
-
-for (let i = 1; i < rows.length - 1; i++) {
-  const row = rows[i];
-  const newPositionRow = document.createElement('td');
-
-  newPositionRow.textContent = row.cells[1].textContent;
-  row.cells[3].insertAdjacentElement('afterend', newPositionRow);
-}
+  row.children[4].before(duplicateTh);
+});
