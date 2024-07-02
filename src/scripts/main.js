@@ -7,7 +7,7 @@ const footColumn = table.tFoot.children[0];
 function insertBeforeLast(root) {
   const copyChild = root.children[1].cloneNode(true);
 
-  root.lastChild.before(copyChild);
+  root.lastElementChild.before(copyChild);
 }
 
 insertBeforeLast(headColumn);
