@@ -7,12 +7,7 @@ const copyColumn = (tab, columnIndex, insertIndex, rowIndex = 0) => {
     return null;
   } else {
     const row = rows[rowIndex];
-    const newCell =
-      rowIndex === 0
-        ? document.createElement('th')
-        : document.createElement('td');
-
-    newCell.textContent = row.children[columnIndex].textContent;
+    const newCell = row.children[columnIndex].cloneNode(true);
 
     if (insertIndex >= row.children.length) {
       row.appendChild(newCell);
