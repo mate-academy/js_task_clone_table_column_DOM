@@ -1,8 +1,6 @@
 'use strict';
 
 const table = document.querySelector('table');
-// const tbody = document.querySelector('tbody');
-// const newRows = document.createElement('tr');
 
 const rows = table.rows;
 
