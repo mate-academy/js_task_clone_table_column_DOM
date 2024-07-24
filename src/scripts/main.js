@@ -7,8 +7,6 @@ for (let i = 1; i < list.length; i += 5) {
   arrOfList.push(list[i]);
 }
 
-// console.log(arrOfList);
-// console.log(document.querySelectorAll('th')[1]);
 const newCol = document.querySelectorAll('th')[3];
 const clone = document.querySelectorAll('th')[1].cloneNode(true);
 
