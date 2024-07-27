@@ -8,9 +8,7 @@ for (let i = 0; i < rows.length; i++) {
 
   const last = tds.item(tds.length - 1);
 
-  const additional = document.createElement('td');
-
-  additional.innerHTML = tds[1].innerHTML;
+  const additional = tds[1].cloneNode(true);
 
   last.insertAdjacentElement('beforebegin', additional);
 }
