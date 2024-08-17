@@ -1,43 +1,25 @@
 'use strict';
 
 const table = document.querySelector('table');
-const thead = table.querySelector('thead');
-const tbody = table.querySelector('tbody');
-const tfoot = table.querySelector('tfoot');
+const [thead, tbody, tfoot] = table.children;
 
 function cloneColumn(columnIndex) {
-  const rows = Array.from(tbody.querySelectorAll('tr'));
-
   const headerCell = thead.querySelectorAll('th')[columnIndex];
-  const newHeaderCell = document.createElement('th');
+  const newHeaderCell = headerCell.cloneNode(true);
 
-  newHeaderCell.textContent = headerCell.textContent;
+  thead.querySelector('tr').appendChild(newHeaderCell);
 
-  thead
-    .querySelector('tr')
-    .insertBefore(newHeaderCell, thead.querySelector('tr').lastElementChild);
+  tbody.querySelectorAll('tr').forEach((row) => {
+    const cell = row.querySelectorAll('td')[columnIndex];
+    const newCell = cell.cloneNode(true);
 
-  rows.forEach((row) => {
-    const cells = Array.from(row.querySelectorAll('td'));
-    const cellToClone = cells[columnIndex];
-    const newCell = document.createElement('td');
-
-    newCell.textContent = cellToClone.textContent;
-
-    row.insertBefore(newCell, row.lastElementChild);
+    row.appendChild(newCell);
   });
 
-  const footerCells = Array.from(
-    tfoot.querySelector('tr').querySelectorAll('th'),
-  );
-  const footerCellToClone = footerCells[columnIndex];
-  const newFooterCell = document.createElement('th');
+  const footerCell = tfoot.querySelectorAll('th')[columnIndex];
+  const newFooterCell = footerCell.cloneNode(true);
 
-  newFooterCell.textContent = footerCellToClone.textContent;
-
-  tfoot
-    .querySelector('tr')
-    .insertBefore(newFooterCell, tfoot.querySelector('tr').lastElementChild);
+  tfoot.querySelector('tr').appendChild(newFooterCell);
 }
 
 cloneColumn(1);
