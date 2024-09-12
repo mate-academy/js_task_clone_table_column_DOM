@@ -1,3 +1,7 @@
 'use strict';
+  const rowList = document.querySelector('table').rows;
 
-// write your code here
+  for (const row of rowList) {
+    const cells = row.cells;
+    cells[cells.length - 1].before(cells[1].cloneNode(true));
+  }
