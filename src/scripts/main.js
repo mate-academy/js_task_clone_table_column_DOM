@@ -10,48 +10,20 @@ const headerRow = document.querySelector('thead tr');
 const footerRow = document.querySelector('tfoot tr');
 const bodyRows = document.querySelectorAll('tbody tr');
 
-function insertToHeader() {
-  const headerCells = headerRow.querySelectorAll('th');
-  const newHeaderCell = document.createElement('th');
+const allRows = [headerRow, ...bodyRows, footerRow];
 
-  newHeaderCell.textContent = headerCells[1].textContent;
+allRows.forEach((row) => {
+  const isRowHeaderOrFooter = row.querySelectorAll('th').length > 0;
 
-  headerRow.insertBefore(newHeaderCell, headerCells[headerCells.length - 1]);
-}
+  const cells = isRowHeaderOrFooter
+    ? row.querySelectorAll('th')
+    : row.querySelectorAll('td');
 
-function insertToFooter() {
-  const footerCells = footerRow.querySelectorAll('th');
-  const newFooterCell = document.createElement('th');
+  const newCell = isRowHeaderOrFooter
+    ? document.createElement('th')
+    : document.createElement('td');
 
-  newFooterCell.textContent = footerCells[1].textContent;
+  newCell.textContent = cells[1].textContent;
 
-  footerRow.insertBefore(newFooterCell, footerCells[footerCells.length - 1]);
-}
-
-function insertToBody() {
-  bodyRows.forEach((row) => {
-    const bodyCells = row.querySelectorAll('td');
-    const newBodyCell = document.createElement('td');
-
-    newBodyCell.textContent = bodyCells[1].textContent;
-    row.insertBefore(newBodyCell, bodyCells[bodyCells.length - 1]);
-  });
-}
-
-insertToHeader();
-insertToFooter();
-insertToBody();
-// allRows.forEach((row) => {
-//   const isHeaderRow = row.querySelector('th') !== null;
-//   const newCell = isHeaderRow
-//     ? document.createElement('th')
-//     : document.createElement('td');
-
-//   newCell.textContent = 'text content';
-
-//   const cells = isHeaderRow
-//     ? row.querySelectorAll('th')
-//     : row.querySelector('td');
-
-//   row.insertBefore(newCell, cells[cells.length - 1]);
-// });
+  row.insertBefore(newCell, cells[cells.length - 1]);
+});
