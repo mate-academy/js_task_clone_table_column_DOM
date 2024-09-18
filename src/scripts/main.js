@@ -1,11 +1,5 @@
 'use strict';
 
-// const newHeaderPart = document
-//   .querySelector('thead:nth-cild(2)')
-//   .cloneNode(true);
-// const newFooterPart = document
-//   .querySelector('tfoot:nth-cild(2)')
-//   .cloneNode(true);
 const headerRow = document.querySelector('thead tr');
 const footerRow = document.querySelector('tfoot tr');
 const bodyRows = document.querySelectorAll('tbody tr');
