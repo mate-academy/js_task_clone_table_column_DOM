@@ -1,5 +1,6 @@
 'use strict';
 
+// write code
 const table = document.querySelector('table');
 
 const theadRow = table.querySelector('thead tr');
