@@ -1,24 +1,17 @@
 'use strict';
 
-// write your code here
 const rows = document.querySelectorAll('tbody tr');
 
 rows.forEach((row) => {
-  // const firstCell = row.querySelector('td');
   const cells = row.querySelectorAll('td');
   const secondCell = cells[1];
   const newCell = document.createElement('td');
 
-  // newCell.textContent = firstCell.textContent;
   newCell.textContent = secondCell.textContent;
 
   const lastCells = row.lastElementChild;
 
   row.insertBefore(newCell, lastCells);
-
-  // row.appendChild(newCell);
-
-  // console.log(firstCell.textContent);
 });
 
 const theadRows = document.querySelectorAll('thead tr');
