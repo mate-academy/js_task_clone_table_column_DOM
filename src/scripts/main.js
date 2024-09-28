@@ -1,19 +1,26 @@
 'use strict';
 
-// write your code here
-
 const table = document.querySelector('table');
 const secondColumnIndex = 1;
-const lastColumnIndex = table.rows[0].cells.length - 1;
+const beforeColumnIndex = 4;
 
-const cloneCells = [];
+const thead = table.querySelector('thead');
+const headerCell = thead.rows[0].cells[secondColumnIndex].cloneNode(true);
 
-for (let i = 0; i < table.rows.length; i++) {
-  const cell = table.rows[i].cells[secondColumnIndex].cloneNode(true);
-  cloneCells.push(cell);
+thead.rows[0].insertBefore(headerCell, thead.rows[0].cells[beforeColumnIndex]);
+
+const tbody = table.querySelector('tbody');
+
+for (let i = 0; i < tbody.rows.length; i++) {
+  const cell = tbody.rows[i].cells[secondColumnIndex].cloneNode(true);
+
+  tbody.rows[i].insertBefore(cell, tbody.rows[i].cells[beforeColumnIndex]);
 }
 
-for (let i = 0; i < table.rows.length; i++) {
-  const newCell = table.rows[i].insertCell(lastColumnIndex);
-  newCell.appendChild(cloneCells[i]);
+const tfoot = table.querySelector('tfoot');
+
+if (tfoot) {
+  const footCell = tfoot.rows[0].cells[secondColumnIndex].cloneNode(true);
+
+  tfoot.rows[0].insertBefore(footCell, tfoot.rows[0].cells[beforeColumnIndex]);
 }
