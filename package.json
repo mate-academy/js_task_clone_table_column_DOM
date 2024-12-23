@@ -18,7 +18,9 @@
     "postinstall": "npm run update",
     "test": "npm run lint && npm run test:only"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@lmdb/lmdb-win32-x64": "^3.2.0"
+  },
   "devDependencies": {
     "@linthtml/linthtml": "^0.9.6",
     "@mate-academy/eslint-config": "latest",
@@ -54,5 +56,8 @@
       "backstop": false,
       "cypress": true
     }
+  },
+  "optionalDependencies": {
+    "@parcel/watcher-linux-x64-glibc": "^2.5.0"
   }
 }
