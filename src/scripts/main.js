@@ -3,9 +3,9 @@
 const rows = document.querySelectorAll('tr');
 
 rows.forEach((row) => {
-  const cellCopy = row.cells[4].cloneNode(true);
+  const cellCopy = row.cells[1].cloneNode(true);
 
-  row.append(cellCopy);
+  const lastCell = row.cells[row.children.length - 1];
 
-  row.cells[4].textContent = row.cells[1].textContent;
+  row.insertBefore(cellCopy, lastCell);
 });
