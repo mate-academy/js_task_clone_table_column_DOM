@@ -6,8 +6,8 @@ const rows = table.querySelectorAll('tr');
 
 rows.forEach((row) => {
   const cells = row.children;
-  const secondSell = cells[1];
-  const clone = secondSell.cloneNode(true);
+  const secondCell = cells[1];
+  const clone = secondCell.cloneNode(true);
 
   const lastCell = cells[cells.length - 1];
 
