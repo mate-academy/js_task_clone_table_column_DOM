@@ -1,27 +1,30 @@
-1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_task_clone_table_column_DOM/)
-2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
-    - Run `npm run test` command to test your code;
-    - Run `npm run test:only -- -n` to run fast test ignoring linter;
-    - Run `npm run test:only -- -l` to run fast test with additional info in console ignoring linter.
+# Copy/Paste Table Column
 
-### Task: Copy/Paste table column
+## 🎮 About the Project
+This project demonstrates how to dynamically clone and append a column within an existing table. It showcases JavaScript DOM manipulation techniques to efficiently duplicate content.
 
-Clone and paste element to document... Easy? Okay, but what do you say when I aks you to clone and paste table column? This task is for real heroes!
+## 🚀 Tech Stack
+- **HTML** (BEM methodology for structured markup)
+- **CSS** (For styling and layout)
+- **JavaScript** (Handles column cloning and appending)
 
-Your task: Clone the second column from the table, and append it to the table. To increase the complexity, append it in front of the last table column.
+## 🛠️ Tools & Dependencies
+- **ESLint** – Ensuring code quality  
+- **Prettier** – Code formatting for readability  
+- **Cypress** – End-to-end testing  
+- **Mochawesome** – Test reporting  
+- **Parcel** – Web application bundler  
 
-Initial table:
+## 📌 Features
+✅ Clones a selected column from a table  
+✅ Appends the cloned column dynamically  
+✅ Demonstrates effective DOM manipulation  
 
-![Preview](./src/images/start.png)
+## 🌐 Demo
+🔗 [Live Demo](https://AndriiZakharenko.github.io/clone-table-column/)
 
-Expected table:
-![Result](./src/images/result.png)
+## 📸 Reference Image  
+<img src="./src/images/start.png" alt="reference image" width="400px" />
 
-In this task, we don't provide details instructions. But below are some hints how to do this task:
-- JavaScript document has methods to work with tables. [Theory tables](https://javascript.info/dom-navigation#dom-navigation-tables) 
-- Before you start review the table structure
-- Remember that in this task HTML table has `tbody`, `thead`, `tfoot` sections.
-- As a first step try to append first column to the end of the table.
-
-You don't need to change styles or HTML layout in this task. Change only `main.js` file.
+## 📜 License
+This project is forked from 💻 [Mate Academy](https://github.com/mate-academy/js_task_clone_table_column_DOM)
