@@ -3,27 +3,14 @@
 const allTrs = Array.from(document.querySelectorAll('tr'));
 
 for (const child of allTrs) {
-  if (child.querySelector('td')) {
-    const allItemsTd = Array.from(child.querySelectorAll('td'));
+  const allCells = Array.from(child.querySelectorAll('td, th'));
 
-    for (let i = 0; i < allItemsTd.length; i++) {
-      if (i === 1) {
-        const newData = document.createElement('td');
-
-        newData.textContent = allItemsTd[i].textContent;
-        child.lastElementChild.insertAdjacentElement('beforebegin', newData);
-      }
-    }
-  }
-
-  const allItemsTh = Array.from(child.querySelectorAll('th'));
-
-  for (let i = 0; i < allItemsTh.length; i++) {
+  for (let i = 0; i < allCells.length; i++) {
     if (i === 1) {
-      const newData = document.createElement('th');
+      const newCell = document.createElement(allCells[i].tagName.toLowerCase());
 
-      newData.textContent = allItemsTh[i].textContent;
-      child.lastElementChild.insertAdjacentElement('beforebegin', newData);
+      newCell.textContent = allCells[i].textContent;
+      child.lastElementChild.insertAdjacentElement('beforebegin', newCell);
     }
   }
 }
