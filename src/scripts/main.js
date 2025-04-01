@@ -2,20 +2,21 @@
 
 const table = document.querySelector('table');
 const tableNodeClone = table.cloneNode(true);
-const toCopy = document.createElement('column');
-const rowSize = table.rows.length - 1;
+const column = document.createElement('div');
+const lastRow = table.rows.length - 1;
+const lastCell = table.rows[0].cells.length - 1;
 
-toCopy.appendChild(tableNodeClone.rows[0].cells[1]);
+column.appendChild(tableNodeClone.rows[0].cells[1]);
 
-for (let i = 1; i <= rowSize; i++) {
+for (let i = 1; i <= lastRow; i++) {
   const secondColumnCell = tableNodeClone.rows[i].cells[1];
 
-  toCopy.appendChild(secondColumnCell);
+  column.appendChild(secondColumnCell);
 }
 
-for (let i = 0; i <= rowSize; i++) {
-  const cell = toCopy.children[i].cloneNode(true);
-  const whereInputAfter = table.rows[i].cells[3];
+for (let i = 0; i <= lastRow; i++) {
+  const dataToInput = column.children[i].cloneNode(true);
+  const lastColumn = table.rows[i].cells[lastCell];
 
-  whereInputAfter.after(cell);
+  lastColumn.before(dataToInput);
 }
