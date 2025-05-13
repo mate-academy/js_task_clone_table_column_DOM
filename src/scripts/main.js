@@ -8,9 +8,8 @@ function cloneAndInsertColumn(rows) {
   rows.forEach((row) => {
     const cells = Array.from(row.children);
     const secondCell = cells[1].cloneNode(true);
-    const lastCell = cells[cells.length - 1];
 
-    row.insertBefore(secondCell, lastCell);
+    row.insertBefore(secondCell, cells[2]);
   });
 }
 
