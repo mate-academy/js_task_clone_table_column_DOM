@@ -2,10 +2,13 @@
 
 const th = document.createElement('th');
 const arrayTr = document.querySelectorAll('thead tr');
-const arrayTh = arrayTr[0].querySelectorAll('th');
+const lastTh = arrayTr[0].querySelector('th:last-child');
 
-th.textContent = arrayTh[1].textContent;
-arrayTr[0].insertBefore(th, arrayTh[arrayTh.length - 1]);
+const secondTh = arrayTr[0].querySelectorAll('th')[1];
+
+th.textContent = secondTh.textContent;
+
+arrayTr[0].insertBefore(th, lastTh);
 
 const tBodyTr = document.querySelectorAll('tbody tr');
 
@@ -14,12 +17,18 @@ for (let i = 0; i < tBodyTr.length; i++) {
   const td = document.createElement('td');
 
   td.textContent = cells[1].textContent;
-  tBodyTr[i].insertBefore(td, cells[cells.length - 1]);
+
+  const lastTd = tBodyTr[i].querySelector('td:last-child');
+
+  tBodyTr[i].insertBefore(td, lastTd);
 }
 
 const th2 = document.createElement('th');
 const arrayTr2 = document.querySelectorAll('tfoot tr');
-const arrayTh2 = arrayTr2[0].querySelectorAll('th');
+const lastTh2 = arrayTr2[0].querySelector('th:last-child');
 
-th2.textContent = arrayTh2[1].textContent;
-arrayTr2[0].insertBefore(th2, arrayTh2[arrayTh2.length - 1]);
+const secondTh2 = arrayTr2[0].querySelectorAll('th')[1];
+
+th2.textContent = secondTh2.textContent;
+
+arrayTr2[0].insertBefore(th2, lastTh2);
