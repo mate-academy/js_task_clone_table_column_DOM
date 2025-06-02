@@ -10,9 +10,13 @@ const columnIndexToClone = 1;
 const insertBeforeIndex = table.rows[0].cells.length - 1;
 
 function cloneAndInsertCell(row, indexToClone, insertBefore) {
-  const clonedCell = row.cells[indexToClone].cloneNode(true);
+  const originalCell = row.cells[indexToClone];
+  const clonedCell = originalCell.cloneNode(true);
 
-  row.insertBefore(clonedCell, row.cells[insertBefore]);
+  const newCell = row.insertCell(insertBefore);
+
+  newCell.innerHTML = clonedCell.innerHTML;
+  newCell.className = clonedCell.className;
 }
 
 [theadRows, tbodyRows, tfootRows].forEach((section) => {
