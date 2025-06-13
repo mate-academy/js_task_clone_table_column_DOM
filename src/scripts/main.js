@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   rows.forEach((row) => {
     const cells = Array.from(row.children);
+
+    if (cells.length < 2) {
+      return;
+    }
+
     const secondCell = cells[1];
     const clonedCell = secondCell.cloneNode(true);
 
