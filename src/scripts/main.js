@@ -3,10 +3,20 @@
 const rows = document.querySelectorAll('tr');
 
 rows.forEach(row => {
-const cells = row.querySelectorAll('td');
-const secondCell = cells[1];
-const newElement = cells[cells.length - 1];
-const copy = secondCell.cloneNode(true);
-row.insertBefore(copy, newElement);
-})
+  const cells = row.querySelectorAll('td');
+
+  if (cells.length < 2) return;
+
+  if (row.dataset.cloned) return;
+
+  const secondCell = cells[1];
+  const lastCell = cells[cells.length - 1];
+
+  const copy = secondCell.cloneNode(true);
+
+  row.insertBefore(copy, lastCell);
+
+  row.dataset.cloned = 'true';
+});
+
 
