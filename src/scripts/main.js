@@ -4,7 +4,7 @@
 const table = document.querySelector('table');
 
 ['thead', 'tbody', 'tfoot'].forEach((sec) => {
-  const section = table.querySelectorAll('sec');
+  const section = table.querySelector(sec);
 
   if (!section) {
     return;
