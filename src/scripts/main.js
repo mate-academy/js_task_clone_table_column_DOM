@@ -11,7 +11,7 @@ for (const sectionName of sections) {
     for (const row of section.rows) {
       const cells = row.cells;
 
-      if (section.length < 2) {
+      if (cells.length < 2) {
         continue;
       }
 
