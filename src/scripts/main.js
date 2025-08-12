@@ -1,20 +1,22 @@
 'use strict';
 
 // write your code here
-const tbody = document.querySelector('tbody');
-const thead = document.querySelector('thead');
-const tfoot = document.querySelector('tfoot');
+const table = document.querySelector('table');
 
-const positionTypeHead = thead.rows[0].cells[1].cloneNode(true);
-const positionTypeFoot = tfoot.rows[0].cells[1].cloneNode(true);
+function cloneSecondColumn(section) {
+  if (!section) {
+    return;
+  }
 
-thead.rows[0].cells[4].before(positionTypeHead);
-tfoot.rows[0].cells[4].before(positionTypeFoot);
+  for (const row of section.rows) {
+    const secondCell = row.cells[1].cloneNode(true);
+    // second column clone
 
-const rows = tbody.rows;
-
-for (let i = 0; i < rows.length; i++) {
-  const employeePosition = tbody.rows[i].cells[1].cloneNode(true);
-
-  tbody.rows[i].cells[4].before(employeePosition);
+    row.cells[row.cells.length - 1].before(secondCell);
+    // insert before last column
+  }
 }
+
+cloneSecondColumn(table.tHead);
+cloneSecondColumn(table.tBodies[0]);
+cloneSecondColumn(table.tFoot);
