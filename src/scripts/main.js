@@ -1,37 +1,42 @@
 'use strict';
 
-const rows = document.querySelectorAll('table tbody tr');
+const rows = document.querySelectorAll('table tr');
 
 const positionColumn = Array.from(rows).map((row) => {
   const cells = row.querySelectorAll('td');
 
-  return cells[1].textContent;
+  return cells[1] ? cells[1].cloneNode(true) : document.createElement('td');
 });
 
 rows.forEach((row, i) => {
   const cells = row.querySelectorAll('td');
-  const newTd = document.createElement('td');
+  const clonedTd = positionColumn[i].cloneNode(true);
 
-  newTd.textContent = positionColumn[i];
-  cells[3].after(newTd);
+  if (cells.length > 0) {
+    cells[cells.length - 1].before(clonedTd);
+  }
 });
 
 const headerRow = document.querySelector('table thead tr');
 
 if (headerRow) {
   const ths = headerRow.querySelectorAll('th');
-  const newTh = document.createElement('th');
+  const clonedTh = ths[1]
+    ? ths[1].cloneNode(true)
+    : document.createElement('th');
 
-  newTh.textContent = 'Position';
-  ths[3].after(newTh);
+  ths[3].after(clonedTh);
 }
 
 const footerRow = document.querySelector('table tfoot tr');
 
 if (footerRow) {
   const ths = footerRow.querySelectorAll('th');
-  const newTh = document.createElement('th');
+  const clonedTh = ths[1]
+    ? ths[1].cloneNode(true)
+    : document.createElement('th');
 
-  newTh.textContent = 'Position';
-  ths[3].after(newTh);
+  if (ths.length > 0) {
+    ths[ths.length - 1].before(clonedTh);
+  }
 }
