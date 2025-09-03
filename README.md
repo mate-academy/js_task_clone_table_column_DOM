@@ -16,6 +16,7 @@ Initial table:
 ![Preview](./src/images/start.png)
 
 Expected table:
+
 ![Result](./src/images/result.png)
 
 In this task, we don't provide details instructions. But below are some hints how to do this task:
