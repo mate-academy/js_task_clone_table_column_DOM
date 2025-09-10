@@ -7,12 +7,17 @@ function insertClone(row) {
     return;
   }
 
-  const lastCell = cells[cells.length - 1];
+  const potentialClone = cells[cells.length - 2];
 
-  if (lastCell && lastCell.dataset && lastCell.dataset.cloned === 'true') {
+  if (
+    potentialClone &&
+    potentialClone.dataset &&
+    potentialClone.dataset.cloned === 'true'
+  ) {
     return;
   }
 
+  const lastCell = cells[cells.length - 1];
   const cellClone = cells[1].cloneNode(true);
 
   cellClone.dataset.cloned = 'true';
