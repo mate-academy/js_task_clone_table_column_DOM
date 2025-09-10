@@ -1,23 +1,37 @@
 'use strict';
 
 function insertClone(row) {
-  const cells = row.children;
+  const cells = row.cells;
+
+  if (cells.length < 2) {
+    return;
+  }
+
+  const lastCell = cells[cells.length - 1];
+
+  if (lastCell && lastCell.dataset && lastCell.dataset.cloned === 'true') {
+    return;
+  }
+
   const cellClone = cells[1].cloneNode(true);
 
-  row.insertBefore(cellClone, row.lastElementChild);
+  cellClone.dataset.cloned = 'true';
+
+  row.insertBefore(cellClone, lastCell);
 }
 
-const tableHeader = document.querySelector('thead');
-const tableBody = document.querySelector('tbody');
-const headerRow = tableHeader.querySelector('tr');
-const tableRows = tableBody.querySelectorAll('tr');
+const table = document.querySelector('table');
 
-if (!tableBody || !tableHeader || !tableRows.length || !headerRow) {
-  throw new Error('Table elements are not found');
+if (!table) {
+  throw new Error('Table element not found');
 }
 
-tableRows.forEach((row) => {
+const allRows = table.querySelectorAll('thead tr, tbody tr, tfoot tr');
+
+if (!allRows.length) {
+  throw new Error('No rows found in thead, tbody, or tfoot');
+}
+
+allRows.forEach((row) => {
   insertClone(row);
 });
-
-insertClone(headerRow);
