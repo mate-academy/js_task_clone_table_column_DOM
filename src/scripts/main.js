@@ -1,9 +1,27 @@
 'use strict';
 
-const table = document.querySelector('table');
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('table');
 
-for (const row of table.rows) {
-  const clonedCell = row.cells[1].cloneNode(true);
+  if (!table) {
+    return;
+  }
 
-  row.insertBefore(clonedCell, row.cells[row.cells.length - 1]);
-}
+  if (window.__secondColCloned) {
+    return;
+  } else {
+    window.__secondColCloned = true;
+  }
+
+  for (const row of table.rows) {
+    if (row.cells.length < 2) {
+      continue;
+    }
+
+    const clonedCell = row.cells[1].cloneNode(true);
+
+    clonedCell.dataset.cloned = 'second-column';
+
+    row.insertBefore(clonedCell, row.cells[row.cells.length - 1]);
+  }
+});
