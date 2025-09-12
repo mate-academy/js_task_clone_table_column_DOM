@@ -1,13 +1,18 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('table tr').forEach(function (row) {
-    const cells = row.cells;
+  // take a static array of rows
+  const rows = Array.from(document.querySelectorAll('table tr'));
+
+  rows.forEach(row => {
+    const cells = Array.from(row.cells); // static snapshot
 
     if (cells.length > 1) {
-      const clone = cells[1].cloneNode(true);
+      const secondCell = cells[1];                // original second cell
+      const lastCell = cells[cells.length - 1];   // original last cell
+      const clone = secondCell.cloneNode(true);
 
-      row.insertBefore(clone, cells[cells.length - 1]);
+      row.insertBefore(clone, lastCell);
     }
   });
 });
