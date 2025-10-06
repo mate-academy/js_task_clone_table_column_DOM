@@ -1,31 +1,32 @@
 'use strict';
 
-const tableBody = [...document.querySelector('tbody').children];
-const tableHead = [...document.querySelector('thead').children];
-const tableFoot = [...document.querySelector('tfoot').children];
+const tableBody = document.querySelector('tbody');
+const tableHead = document.querySelector('thead');
+const tableFoot = document.querySelector('tfoot');
 
-const mapping = [...tableHead[0].children].map(
-  (item) => item.textContent.toLowerCase(),
-  // eslint-disable-next-line function-paren-newline
-);
+function copyPaste(section) {
+  if (!section) {
+    return;
+  }
 
-const mapObj = mapping.reduce((acc, key, index) => {
-  acc[key] = index;
+  const copyIndex = 1;
 
-  return acc;
-}, {});
+  [...section.children].forEach((row) => {
+    const sourceCell = row.children[copyIndex];
 
-function copyPaste(table, copy, pasteAfter) {
-  table.forEach((row) => {
-    const bufferText = row.children[copy].textContent;
-    const paste = row.children[pasteAfter];
-    const copyEl = document.createElement(row.lastElementChild.tagName);
+    if (!sourceCell) {
+      return;
+    }
 
-    copyEl.textContent = bufferText;
-    paste.after(copyEl);
+    const clone = sourceCell.cloneNode(true);
+
+    const insertBeforeIndex = row.children.length - 1;
+    const targetCell = row.children[insertBeforeIndex];
+
+    targetCell.before(clone);
   });
 }
 
-copyPaste(tableBody, mapObj.position, mapObj.age);
-copyPaste(tableHead, mapObj.position, mapObj.age);
-copyPaste(tableFoot, mapObj.position, mapObj.age);
+copyPaste(tableHead);
+copyPaste(tableBody);
+copyPaste(tableFoot);
