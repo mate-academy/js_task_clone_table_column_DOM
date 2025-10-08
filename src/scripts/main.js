@@ -4,23 +4,77 @@
 // Знаходимо таблицю
 const tbl = document.querySelector('table');
 
-// Перевірка, що таблиця існує, перш ніж щось робити
+// Якщо таблиця знайдена — виконуємо клонування
 if (tbl) {
-  cloneColumn(tbl, 1); // клонуємо другу колонку (індекс 1)
+  const secondLogicalIndex = computeSecondColumnLogicalIndex(tbl);
+
+  if (typeof secondLogicalIndex === 'number') {
+    cloneColumnByLogicalIndex(tbl, secondLogicalIndex);
+  }
 }
 
 /**
- * Клонує вказану колонку і вставляє її перед останньою
- * @param {HTMLTableElement} tableElement - таблиця
- * @param {number} colIndexToClone - індекс колонки для клонування (0-based)
+ * Обчислює логічний індекс другої колонки (0-based)
+ * Використовує перший рядок thead, або перший рядок tbody, якщо thead відсутній
  */
-function cloneColumn(tableElement, colIndexToClone) {
-  // Перевірка, що передано коректний елемент таблиці
+function computeSecondColumnLogicalIndex(tableElement) {
   if (!tableElement) {
+    return null;
+  }
+
+  // Беремо перший рядок із thead або tbody
+  const refRow =
+    (tableElement.tHead &&
+      tableElement.tHead.rows &&
+      tableElement.tHead.rows[0]) ||
+    (tableElement.tBodies &&
+      tableElement.tBodies[0] &&
+      tableElement.tBodies[0].rows &&
+      tableElement.tBodies[0].rows[0]) ||
+    null;
+
+  if (!refRow) {
+    return null;
+  }
+
+  const cells = refRow.cells;
+
+  // Якщо у рядку дві і більше клітинки — визначаємо початок другої
+  if (cells.length >= 2) {
+    let col = 0;
+
+    for (let i = 0; i < cells.length; i++) {
+      const span = cells[i].colSpan || 1;
+
+      if (i === 1) {
+        return col;
+      } // логічний індекс другої колонки
+      col += span;
+    }
+  }
+
+  // Якщо лише одна клітинка, але вона має colspan >= 2
+  if (cells.length === 1) {
+    const span = cells[0].colSpan || 1;
+
+    if (span >= 2) {
+      return 1;
+    }
+
+    return null;
+  }
+
+  return null;
+}
+
+/**
+ * Клонує колонку за логічним індексом і вставляє перед останньою колонкою
+ */
+function cloneColumnByLogicalIndex(tableElement, targetLogicalIndex) {
+  if (!tableElement || typeof targetLogicalIndex !== 'number') {
     return;
   }
 
-  // Опрацьовуємо всі три секції таблиці
   ['thead', 'tbody', 'tfoot'].forEach((sectionName) => {
     const section = tableElement.querySelector(sectionName);
 
@@ -29,26 +83,33 @@ function cloneColumn(tableElement, colIndexToClone) {
     }
 
     section.querySelectorAll('tr').forEach((row) => {
-      // Беремо snapshot комірок (щоб live-колекція не мінялася під час вставки)
-      const cells = Array.from(row.cells);
+      const cellsSnapshot = Array.from(row.cells);
 
-      if (cells.length === 0) {
+      if (cellsSnapshot.length === 0) {
         return;
       }
 
-      const sourceCell = cells[colIndexToClone];
+      // Знаходимо комірку, яка охоплює цю логічну колонку
+      let col = 0;
+      let sourceCell = null;
+
+      for (const cell of cellsSnapshot) {
+        const span = cell.colSpan || 1;
+
+        if (targetLogicalIndex >= col && targetLogicalIndex < col + span) {
+          sourceCell = cell;
+          break;
+        }
+        col += span;
+      }
 
       if (!sourceCell) {
         return;
-      } // якщо у рядку менше колонок
+      }
 
-      // Клонуємо клітинку (включно з усім її вмістом)
       const clonedCell = sourceCell.cloneNode(true);
+      const refNode = cellsSnapshot[cellsSnapshot.length - 1] || null;
 
-      // Визначаємо, куди вставляти (перед останньою клітинкою або в кінець)
-      const refNode = cells[cells.length - 1] || null;
-
-      // Вставляємо копію перед останньою клітинкою (або додаємо в кінець)
       row.insertBefore(clonedCell, refNode);
     });
   });
