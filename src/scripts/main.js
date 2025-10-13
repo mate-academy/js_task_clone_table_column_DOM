@@ -8,25 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  ['thead', 'tbody', 'tfoot'].forEach((sectionName) => {
-    const sections = table.querySelectorAll(sectionName);
+  table.querySelectorAll('thead, tbody, tfoot').forEach((section) => {
+    section.querySelectorAll('tr').forEach((row) => {
+      if (row.cells.length < 2) {
+        return;
+      }
 
-    if (sections.length === 0) {
-      return;
-    }
+      const secondCell = row.cells[1];
+      const clonedCell = secondCell.cloneNode(true);
+      const referenceCell = row.cells[row.cells.length - 1];
 
-    sections.forEach((section) => {
-      section.querySelectorAll('tr').forEach((row) => {
-        if (row.cells.length < 2) {
-          return;
-        }
-
-        const secondCell = row.cells[1];
-        const clonedCell = secondCell.cloneNode(true);
-        const referenceCell = row.cells[row.cells.length - 1];
-
-        row.insertBefore(clonedCell, referenceCell);
-      });
+      row.insertBefore(clonedCell, referenceCell);
     });
   });
 });
