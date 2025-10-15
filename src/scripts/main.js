@@ -1,14 +1,18 @@
 'use strict';
 
-const table = document.body.firstElementChild;
+const table = document.querySelector('table');
 
-const sectionArray = [table.tHead, table.tBodies[0], table.tFoot];
+const tBodies = [...table.tBodies];
+
+const sectionArray = [table.tHead, ...tBodies, table.tFoot];
 
 sectionArray.filter(Boolean).forEach((section) => {
   Array.from(section.rows).forEach((row) => {
-    const second = row.cells[1];
-    const copy = second.cloneNode(true);
+    if (row.cells[1]) {
+      const second = row.cells[1];
+      const copy = second.cloneNode(true);
 
-    row.insertBefore(copy, row.lastElementChild);
+      row.insertBefore(copy, row.lastElementChild);
+    }
   });
 });
