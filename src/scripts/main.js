@@ -8,7 +8,7 @@ const footerRow = table.querySelector('tfoot tr');
 
 function cloneColumn(row) {
   const cellToClone = row.cells[1];
-  const referenceCell = row.cells[4];
+  const referenceCell = row.cells[row.cells.length - 1];
   const clonedCell = cellToClone.cloneNode(true);
 
   row.insertBefore(clonedCell, referenceCell);
