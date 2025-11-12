@@ -1,3 +1,8 @@
 'use strict';
+const table = document.querySelector('table');
 
-// write your code here
+for (const row of table.rows) {
+  const cells = row.cells;
+  const clone = cells[1].cloneNode(true);
+  row.insertBefore(clone, cells[cells.length - 1]);
+}
