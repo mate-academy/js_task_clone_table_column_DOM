@@ -1,3 +1,15 @@
 'use strict';
 
-// write your code here
+const table = document.querySelector('table');
+const rows = table.rows;
+
+for (let i = 0; i < rows.length; i++) {
+  const row = rows[i];
+  const secondCell = row.cells[1];
+  const lastCell = row.cells[row.cells.length - 1];
+  const cellType = secondCell.tagName.toLowerCase();
+  const newCell = document.createElement(cellType);
+
+  newCell.textContent = secondCell.textContent;
+  row.insertBefore(newCell, lastCell);
+}
