@@ -7,7 +7,8 @@ for (let i = 0; i < rows.length; i++) {
   const row = rows[i];
   const secondCell = row.cells[1];
   const lastCell = row.cells[row.cells.length - 1];
-  const newCell = document.createElement('td');
+  const cellType = secondCell.tagName.toLowerCase();
+  const newCell = document.createElement(cellType);
 
   newCell.textContent = secondCell.textContent;
   row.insertBefore(newCell, lastCell);
