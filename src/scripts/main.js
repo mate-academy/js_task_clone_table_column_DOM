@@ -3,7 +3,7 @@
 // write your code here
 const table = document.body.querySelectorAll('thead, tbody, tfoot');
 
-for (const section in table) {
+table.forEach((section) => {
   const rows = section.querySelectorAll('tr');
 
   rows.forEach((row) => {
@@ -12,4 +12,4 @@ for (const section in table) {
 
     row.insertBefore(clonedCells, cells[cells.length - 1]);
   });
-}
+});
