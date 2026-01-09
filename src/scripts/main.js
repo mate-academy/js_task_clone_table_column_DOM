@@ -1,5 +1,6 @@
 'use strict';
 
+
 function cloneTableColumn(tableElement, sourceIndex) {
   for (const element of tableElement.children) {
     for (const row of element.rows) {
