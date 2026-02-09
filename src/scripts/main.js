@@ -18,6 +18,6 @@ for (const row of table.rows) {
     const cellCopy = positionCell.cloneNode(true);
 
     // 4. Вставляємо копію одразу після останньої клітинки
-    lastCell.after(cellCopy);
+    lastCell.before(cellCopy);
   }
 }
