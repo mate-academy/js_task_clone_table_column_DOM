@@ -1,6 +1,10 @@
 'use strict';
 
 // write your code here
+'use strict';
+
+'use strict';
+
 (function () {
   const table = document.querySelector('table');
 
@@ -18,19 +22,14 @@
     for (const row of rows) {
       const cells = Array.from(row.children);
 
-      if (cells.length < 2) {
+      if (cells.length <= columnIndex) {
         continue;
       }
 
       const sourceCell = cells[columnIndex];
-
-      if (!sourceCell) {
-        continue;
-      }
-
       const lastCell = cells[cells.length - 1];
 
-      if (!lastCell) {
+      if (!sourceCell || !lastCell) {
         continue;
       }
 
@@ -39,6 +38,10 @@
       row.insertBefore(cloned, lastCell);
     }
   }
+
+  // Learning step (as suggested in task):
+  // Idea: clone column index 0 and append it to the end of each row
+  // (then revert and implement the final requirement).
 
   cloneColumnBeforeLast(table.tHead, 1);
   cloneColumnBeforeLast(table.tBodies[0], 1);
