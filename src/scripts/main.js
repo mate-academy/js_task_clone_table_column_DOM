@@ -1,16 +1,46 @@
 'use strict';
 
 // write your code here
-const table = document.querySelector('table');
+(function () {
+  const table = document.querySelector('table');
 
-const rows = table.querySelectorAll('tr');
+  if (!table) {
+    return;
+  }
 
-rows.forEach((row) => {
-  const cells = Array.from(row.children);
+  function cloneColumnBeforeLast(section, columnIndex) {
+    if (!section) {
+      return;
+    }
 
-  const secondCell = cells[1];
+    const rows = Array.from(section.querySelectorAll('tr'));
 
-  const cloned = secondCell.cloneNode(true);
+    for (const row of rows) {
+      const cells = Array.from(row.children);
 
-  row.insertBefore(cloned, cells[cells.length - 1]);
-});
+      if (cells.length < 2) {
+        continue;
+      }
+
+      const sourceCell = cells[columnIndex];
+
+      if (!sourceCell) {
+        continue;
+      }
+
+      const lastCell = cells[cells.length - 1];
+
+      if (!lastCell) {
+        continue;
+      }
+
+      const cloned = sourceCell.cloneNode(true);
+
+      row.insertBefore(cloned, lastCell);
+    }
+  }
+
+  cloneColumnBeforeLast(table.tHead, 1);
+  cloneColumnBeforeLast(table.tBodies[0], 1);
+  cloneColumnBeforeLast(table.tFoot, 1);
+})();
