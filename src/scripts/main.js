@@ -21,25 +21,25 @@ function cloneSecondCell(row) {
   return cloned;
 }
 
-// function cloneFirstCell(row) {
-//   if (row.cells.length === 0) {
-//     return null;
-//   }
+function cloneFirstCell(row) {
+  if (row.cells.length === 0) {
+    return null;
+  }
 
-//   return row.cells[0].cloneNode(true);
-// }
+  return row.cells[0].cloneNode(true);
+}
 
 selections.forEach((selection) => {
   const rows = [...selection.rows];
 
   rows.forEach((row) => {
-    // const firstClone = cloneFirstCell(row);
+    const firstClone = cloneFirstCell(row);
     const secondClone = cloneSecondCell(row);
     const lastCell = row.cells[row.cells.length - 1];
 
-    // if (firstClone) {
-    //   row.appendChild(firstClone);
-    // }
+    if (firstClone) {
+      row.appendChild(firstClone);
+    }
 
     if (!secondClone) {
       return;
