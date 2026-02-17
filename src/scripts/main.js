@@ -31,7 +31,7 @@ selections.forEach((selection) => {
       return true;
     }
 
-    const lastCell = row.cells[row.cells - 1];
+    const lastCell = row.cells[row.cells.length - 1];
 
     row.insertBefore(newCell, lastCell);
   });
