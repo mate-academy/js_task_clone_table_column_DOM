@@ -1,3 +1,7 @@
-'use strict';
+const ro = document.querySelector('table');
 
-// write your code here
+for (const row of ro.rows) {
+  const cloun = row.cells[1].cloneNode(true);
+
+  row.cells[4].before(cloun);
+}
