@@ -1,7 +1,5 @@
 'use strict';
 
-// write your code here
-
 // #1
 // const columnToMove = document.querySelectorAll('table tr > :nth-child(2)');
 // const columnToPutTargetAfter = document
@@ -15,11 +13,14 @@
 // }
 
 // #2
+const CURRENT_POSITION = 1;
+const TARGET_POSITION = -2;
+
 const table = document.querySelector('table');
 
 for (const row of table.rows) {
-  row.cells[row.cells.length - 2].insertAdjacentElement(
+  row.cells[row.cells.length + TARGET_POSITION].insertAdjacentElement(
     'afterend',
-    row.cells[1].cloneNode(true),
+    row.cells[CURRENT_POSITION].cloneNode(true),
   );
 }
