@@ -3,12 +3,12 @@
 const k = document.querySelector('thead tr');
 const m = Array.from(k.children);
 
-m[m.length - 1].before(m[1]);
+m[m.length - 1].before(m[1].cloneNode(true)); // here is clone
 
-const w = document.querySelector('tfoot th');
+const w = document.querySelector('tfoot tr');
 const f = Array.from(w.children);
 
-f[f.length - 1].before(f[1]);
+f[f.length - 1].before(f[1].cloneNode(true));
 
 const col = [...document.querySelectorAll('tbody tr')];
 
