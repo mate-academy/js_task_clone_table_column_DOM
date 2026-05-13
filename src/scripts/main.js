@@ -9,5 +9,7 @@ for (const row of table.rows) {
 
   const clonedCell = secondColumnCell.cloneNode(true);
 
-  row.insertBefore(clonedCell, cells[cells.length - 1]);
+  const lastCell = cells[cells.length - 1];
+
+  row.insertBefore(clonedCell, lastCell);
 }
