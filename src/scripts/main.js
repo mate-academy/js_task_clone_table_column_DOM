@@ -1,7 +1,10 @@
 'use strict';
 
 // write your code here
-const rows = document.querySelectorAll('tr');
+const originalTable = document.querySelector('table');
+const table = originalTable.cloneNode(true);
+
+const rows = table.querySelectorAll('tr');
 
 rows.forEach((row) => {
   const cells = row.querySelectorAll('th, td');
@@ -20,8 +23,10 @@ rows.forEach((row) => {
   if (cells.length >= 2) {
     const secondCell = cells[1];
     const clonedCell = secondCell.cloneNode(true);
-    const lastCell = cells[cells.length - 1];
+    const fifthCell = cells[4];
 
-    lastCell.parentNode.insertBefore(clonedCell, lastCell);
+    fifthCell.parentNode.insertBefore(clonedCell, fifthCell);
   }
 });
+
+originalTable.parentNode.replaceChild(table, originalTable);
