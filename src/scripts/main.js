@@ -24,3 +24,9 @@ for (const row of table.tBodies[0].rows) {
   newCell.textContent = values[row.sectionRowIndex];
   row.insertBefore(newCell, row.cells[row.cells.length - 1]);
 }
+
+for (const row of table.tFoot.rows) {
+  const clone = row.cells[1].cloneNode(true);
+
+  row.insertBefore(clone, row.cells[row.cells.length - 1]);
+}
