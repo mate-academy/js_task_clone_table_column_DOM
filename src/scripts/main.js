@@ -14,14 +14,12 @@ const headCell = headRow.cells[1];
 const headClone = headCell.cloneNode(true);
 
 headRow.insertBefore(headClone, headRow.lastElementChild);
-tHeadTable.appendChild(headRow);
 
 const footRow = footRows[0];
 const footCell = footRow.cells[1];
 const footClone = footCell.cloneNode(true);
 
 footRow.insertBefore(footClone, footRow.lastElementChild);
-tFootTable.appendChild(footRow);
 
 for (let i = 0; i < bodyRows.length; i++) {
   const row = bodyRows[i];
