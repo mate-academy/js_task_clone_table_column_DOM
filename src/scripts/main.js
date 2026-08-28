@@ -6,6 +6,10 @@
 const tableElements = document.querySelectorAll('tr');
 
 // console.log(tableElements);
+// console.log(table);
+// const salary = tableHead.lastChild;
+
+// console.log(salary);
 
 function addColumn() {
   for (const row of tableElements) {
@@ -13,7 +17,7 @@ function addColumn() {
 
     const copy = row.children[1].cloneNode(true);
 
-    row.append(copy);
+    row.insertBefore(copy, row.lastElementChild);
   }
 }
 
