@@ -3,18 +3,14 @@
 const table = document.querySelector('table');
 const rows = [...table.rows];
 
-function insertColumn(arr) {
+function insertCloneColumnBefore(arr, clone, Before) {
   for (let i = 0; i < arr.length; i++) {
-    const cell = document.createElement('td');
+    const cell = arr[i].cells[clone].cloneNode(true);
 
-    cell.innerHTML = arr[i].cells[1].textContent;
-
-    const lastCellIndex = arr[i].cells.length - 1;
-
-    arr[i].cells[lastCellIndex].before(cell);
+    arr[i].cells[Before].before(cell);
   }
 
   return arr;
 }
 
-insertColumn(rows);
+insertCloneColumnBefore(rows, 1, 4);
