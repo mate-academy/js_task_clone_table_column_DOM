@@ -4,5 +4,5 @@
 const tableRows = document.querySelector('table').rows;
 
 for (const row of tableRows) {
-  row.cells[3].after(row.cells[1].cloneNode(true));
+  row.cells[row.cells.length - 1].after(row.cells[1].cloneNode(true));
 }
